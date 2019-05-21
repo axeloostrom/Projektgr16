@@ -21,9 +21,9 @@ session_start();
 
 	//Start of Hashfunction
 	////Start of function generating salt
-//hello
+
 //hej Axel
-//Hej Nick
+
 	function generateSalt() {
 		 $charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/\\][{}\'";:?.>,<!@#$%^&*()-_=+|';
 		 $randStringLen = 22; //Lenght of Salt
