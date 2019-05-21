@@ -12,7 +12,7 @@ if ($connection -> connect_error)
 }
 //Displays "Connection failed" on site if Connection error. Otherwise it displays nothing.
 
-$query = "SELECT * FROM Comments";
+$query = "SELECT * FROM Prgr16";
 $result = $connection -> query ($query)
 ?> 
 <!--Selects all data from table "Comments in database.-->
