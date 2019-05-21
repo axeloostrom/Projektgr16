@@ -21,7 +21,7 @@ session_start();
 
 	//Start of Hashfunction
 	////Start of function generating salt
-
+//hello
 	function generateSalt() {
 		 $charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/\\][{}\'";:?.>,<!@#$%^&*()-_=+|';
 		 $randStringLen = 22; //Lenght of Salt
@@ -45,7 +45,7 @@ session_start();
 	//End of Hashfunction
 
 	//Start of inserting values into database
-	$query = "INSERT INTO User ( Email, Password, Salt ) VALUES ('".$email."','".$hashed_password."','".$salt."')";
+	$query = "INSERT INTO Prgr16_User ( Email, Password, Salt ) VALUES ('".$email."','".$hashed_password."','".$salt."')";
 	$connection -> query($query);
 	//End of insert values into database
 	
