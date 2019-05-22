@@ -24,8 +24,7 @@ session_start();
 		if ( ! $row) 
 		{
 			echo $row;
-			header("Location:Unauthorized.php");
-			exit();
+			header("Location:Session.php");
 		}
 		else
 			{
@@ -50,11 +49,11 @@ session_start();
 			
 			if ($_SESSION["hashed_password"] != $_SESSION["db_password"]) 
 			{
-				$message = "The password is incorrect!";
+               $message = "The password is incorrect!";
 				echo "<script type='text/javascript'>alert('$message');</script>";
 				session_unset(); 
 				session_destroy();
-				header("Refresh:0.1; Location:Unauthorized.php");
+				header("Location:Unauthorized.php");
 				
 			}
 		}
@@ -71,7 +70,7 @@ session_start();
 			<h1 id="Big">BIG TALK</h1>
 			<h1>The forum where hard topics are discussed constructively</h1>
 	</head>
-	<body>
+	<body onload='document.regForm.reg_usrname.focus()'>
 		<div class="bar">
 			<h2 id="topic"> Login Succesful.</h2>
 		</div>

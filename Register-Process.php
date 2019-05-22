@@ -106,5 +106,5 @@ session_start();
 	</body>
 </html>
 <?php	
-header("Refresh: 5; URL=SearchService.php");
+header("Refresh: 5; URL=Index.php");
 ?>
