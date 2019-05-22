@@ -1,10 +1,16 @@
-<?php 
+<?php
 
+$uname = "dbtrain_850";
+$pass = "rkdrha";
+$host = "dbtrain.im.uu.se";
+$dbname = "dbtrain_850";		
 
-
+$connection = new mysqli( $host, $uname, $pass, $dbname);
+    if ($connection -> connect_error)
+	{
+		die ("Connection failed:".$connection.connect_error) ;
+	}
 ?>
-
-
 <html>
     <head>
         <meta charset="UTF-8">
@@ -12,7 +18,8 @@
         <body>
             <h1> Lediga tjänster </h1>
              Jobbkategori: </br>
-            <select> 
+             <form action="SearchService.php" method="post">
+            <select id="service" name="service"> 
                 <option value="Välj tjänst" id="abc" name="abc">Välj tjänst...</option>
                 <option value="Barnvakt" id="Barnvakt" name="Barnvakt">Barnvakt</option>
                 <option value="Hundvakt" id="Hundvakt" name="Hundvakt">Hundvakt</option>
@@ -25,9 +32,9 @@
             </select> </br>
 
                </br> Region: </br>
-               <select>
+               <select id="region" name="region">
                 <option value="Område" id="ab" name="ab">Välj område...</option>
-                <option value="Boländerna" id="bländer" name="bländer">Boländerna</option>
+                <option value="Bolanderna" id="bländer" name="bländer">Boländerna</option>
                 <option value="Luthagen" id="Lutis" name="Lutis">Luthagen</option>
                 <option value="Ekeby" id="Ekeby" name="Ekeby">Ekeby</option>
                 <option value="Rackarbergen" id="RackC" name="RackC">Rackarbergen</option>
@@ -35,8 +42,28 @@
                 <option value="Centrum" id="C" name="C">Centrum</option>
                 <option value="To be continued" id="tb" name="tb">To be continued</option>
             </select>
-            </br> </br> <button type="button">Sök</button>
+            </br> </br> <input type="submit" id="search" value="Sök">
+            </form>
 
+            <?php
+            
+            $service = $_POST['service'];
+            $region = $_POST['region'];
+
+                $query = "SELECT * FROM Prgr16_Jobs  WHERE Adress='$region' AND Job_Category='$service'";
+                $result = $connection -> query($query);
+
+                		
+			while ($row = $result -> fetch_assoc ())
+			{
+				echo $row["Adress"];
+                echo $row["Emp_Name"];
+                echo $row["Job_Category"];
+                echo $row["Wage"];
+                echo $row["Est_Time"];
+			}
+		
+            ?>
         </body>
 
 </html>
