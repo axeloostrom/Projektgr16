@@ -29,7 +29,7 @@ $result = $connection -> query ($query)
 		<style>
 		
 		</style>
-		<title>Big Talk</title>
+		<title>Uppsala</title>
 			<h1 id="Big">BIG TALK</h1>
 			<h1>The forum where hard topics are discussed constructively</h1>
 	</head>
