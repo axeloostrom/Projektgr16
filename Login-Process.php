@@ -1,17 +1,4 @@
 <?php
-
-$uname = "dbtrain_850";
-$pass = "rkdrha";
-$host = "dbtrain.im.uu.se";
-$dbname = "dbtrain_850";	
-
-$connection = new mysqli( $host, $uname, $pass, $dbname);
-if ($connection -> connect_error)
-{
-	die ("Login failed:".$connection.connect_error) ;
-}
-echo "Logging in...";
-
 // Start the session
 session_start();
 ?>
@@ -63,11 +50,11 @@ session_start();
 			
 			if ($_SESSION["hashed_password"] != $_SESSION["db_password"]) 
 			{
-				$message = "The password is incorrect!";
+                $message = "Hej";
 				echo "<script type='text/javascript'>alert('$message');</script>";
 				session_unset(); 
 				session_destroy();
-				header("Refresh:0.1; Location:Login.php");
+				header("Location:Login.php");
 				
 			}
 		}
@@ -94,4 +81,3 @@ session_start();
 <?php	
 	header("Refresh: 3; URL=Index.php");
 ?>
-
