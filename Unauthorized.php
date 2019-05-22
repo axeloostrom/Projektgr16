@@ -37,7 +37,7 @@ if ($connection -> connect_error)
 					<input class="input" type="text" name="login_ue" required><br>
 				<div class="formId">Lösenord:</div>
 					<input class="formId" type "text" name="login_pw" required><br>
-				<input class="subbutton"type="submit" value="Login" onclick="validateRegisterEmail(document.loginForm.login_ue)">
+				<input class="subbutton"type="submit" value="Login" onclick="validateRegisterEmail(document.loginForm.login_usremail)">
 			</fieldset>
 		</form>
 		<script src="assets\js\js.js"></script>
