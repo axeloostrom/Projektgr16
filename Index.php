@@ -2,7 +2,7 @@
 // Start the session
 session_start();
 
-if (!isset($_SESSION["hashed_password"])) 
+if ($_SESSION["hashed_password"] == null) 
 	{
 		header("Location:Login.php");
 	}
@@ -21,7 +21,7 @@ if ($connection -> connect_error)
 }
 //Displays "Connection failed" on site if Connection error. Otherwise it displays nothing.
 
-$query = "SELECT * FROM Prgr16_User";
+$query = "SELECT * FROM Comments";
 $result = $connection -> query ($query)
 ?> 
 <!--Selects all data from table "Comments in database.-->
@@ -53,10 +53,10 @@ $result = $connection -> query ($query)
 		<?php
 			while ($row = $result -> fetch_assoc () )
 			{
-				echo "<span class='Bnum'>Post #".$row["UID"]. "</span><br><br>"; //Fetches the data in the column "Bnum" from the database. Increments by one for every new comment.
-				echo "<span class='Bname'>Made by: ".$row["Email"]. "</span>"; //Fetches the data in the column "Name" from the database.
+				echo "<span class='Bnum'>Post #".$row["Bnum"]. "</span><br><br>"; //Fetches the data in the column "Bnum" from the database. Increments by one for every new comment.
+				echo "<span class='Bname'>Made by: ".$row["Name"]. "</span>"; //Fetches the data in the column "Name" from the database.
 				echo "<br/>";
-				echo "<span class='Bcomment'>''".$row["Password"]. "'' <br/></span><br>"; //Fetches the data in the column "Bcomment" from the database.
+				echo "<span class='Bcomment'>''".$row["Comment"]. "'' <br/></span><br>"; //Fetches the data in the column "Bcomment" from the database.
 				echo "<span class='Stars'>***</span><br><br><br>"; //Adds three stars to mark the end of a comment.
 			}
 		?>

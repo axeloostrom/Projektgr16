@@ -57,10 +57,6 @@ session_start();
 				header("Refresh:0.1; Location:Unauthorized.php");
 				
 			}
-			else 
-			{
-				header("Location:Index.php")
-			}
 		}
 ?>
 <html>
@@ -75,7 +71,7 @@ session_start();
 			<h1 id="Big">BIG TALK</h1>
 			<h1>The forum where hard topics are discussed constructively</h1>
 	</head>
-	<body>
+	<body onload='document.regForm.reg_usrname.focus()'>
 		<div class="bar">
 			<h2 id="topic"> Login Succesful.</h2>
 		</div>
