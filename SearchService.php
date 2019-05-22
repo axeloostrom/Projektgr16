@@ -1,5 +1,7 @@
 <?php
 
+//Måste göra så att det krävs att man är inloggad för att söka upp tjänst
+
 $uname = "dbtrain_850";
 $pass = "rkdrha";
 $host = "dbtrain.im.uu.se";
@@ -40,7 +42,7 @@ $connection = new mysqli( $host, $uname, $pass, $dbname);
                 <option value="Rackarbergen" id="RackC" name="RackC">Rackarbergen</option>
                 <option value="Studentstaden" id="Stud" name="Stud">Studentstaden</option>
                 <option value="Centrum" id="C" name="C">Centrum</option>
-                <option value="To be continued" id="tb" name="tb">To be continued</option>
+                <option value="To be continued" id="tb" name="tb">Övrigt</option>
             </select>
             </br> </br> <input type="submit" id="search" value="Sök">
             </form>
@@ -62,7 +64,7 @@ $connection = new mysqli( $host, $uname, $pass, $dbname);
                 echo $row["Wage"];
                 echo $row["Est_Time"];
 			}
-		
+		    //tryck vidare för AnnonsSida.php
             ?>
         </body>
 
