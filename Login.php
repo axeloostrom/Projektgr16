@@ -28,7 +28,7 @@ $result = $connection -> query ($query)
 		<h1 id="Big">BIG TALK</h1>
 		<h1>The forum where hard topics are discussed constructively</h1>
 	</head>
-	<body onload='document.regForm.reg_usrname.focus()'>
+	<body>
 		<div class="bar">
 			<h2 id="topic"> Join Our Forum: Register Below</h2>
 		</div>

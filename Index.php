@@ -1,4 +1,13 @@
 <?php
+// Start the session
+session_start();
+
+if (!isset($_SESSION["hashed_password"])) 
+	{
+		header("Location:Login.php");
+	}
+?>
+<?php
 $uname = "dbtrain_850";
 $pass = "rkdrha";
 $host = "dbtrain.im.uu.se";
@@ -12,7 +21,7 @@ if ($connection -> connect_error)
 }
 //Displays "Connection failed" on site if Connection error. Otherwise it displays nothing.
 
-$query = "SELECT * FROM Prgr16";
+$query = "SELECT * FROM Prgr16_User";
 $result = $connection -> query ($query)
 ?> 
 <!--Selects all data from table "Comments in database.-->
@@ -25,8 +34,8 @@ $result = $connection -> query ($query)
 		<link rel='stylesheet' type='text/css' href="assets\css\style.php" />
 		<!--Links to the external php & css-sheets that are being used.-->
 		<ul class="mstructure">
-			<li class="mblock"><a class="active" href="#home">Topics</a></li>
-			<li class="mblock"><a href="#news">Logout</a></li>
+			<li class="mblock"><a class="active" href="Index.php">Topics</a></li>
+			<li class="mblock"><a href="Logout-process.php">Logout</a></li>
 		</ul>
 		
 		<title>Big Talk</title>
@@ -44,10 +53,10 @@ $result = $connection -> query ($query)
 		<?php
 			while ($row = $result -> fetch_assoc () )
 			{
-				echo "<span class='Bnum'>Post #".$row["Bnum"]. "</span><br><br>"; //Fetches the data in the column "Bnum" from the database. Increments by one for every new comment.
-				echo "<span class='Bname'>Made by: ".$row["Name"]. "</span>"; //Fetches the data in the column "Name" from the database.
+				echo "<span class='Bnum'>Post #".$row["UID"]. "</span><br><br>"; //Fetches the data in the column "Bnum" from the database. Increments by one for every new comment.
+				echo "<span class='Bname'>Made by: ".$row["Email"]. "</span>"; //Fetches the data in the column "Name" from the database.
 				echo "<br/>";
-				echo "<span class='Bcomment'>''".$row["Comment"]. "'' <br/></span><br>"; //Fetches the data in the column "Bcomment" from the database.
+				echo "<span class='Bcomment'>''".$row["Password"]. "'' <br/></span><br>"; //Fetches the data in the column "Bcomment" from the database.
 				echo "<span class='Stars'>***</span><br><br><br>"; //Adds three stars to mark the end of a comment.
 			}
 		?>

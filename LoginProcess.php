@@ -57,6 +57,10 @@ session_start();
 				header("Refresh:0.1; Location:Unauthorized.php");
 				
 			}
+			else 
+			{
+				header("Location:Index.php")
+			}
 		}
 ?>
 <html>
