@@ -19,14 +19,14 @@ $result = $connection -> query ($query)
 <html>
 	<head>
 		<meta charset = "UTF-8">
-		<link rel = "stylesheet" type = "text/css"  href = "assets\css\css.css" />
+		<link rel = "stylesheet" type = "text/css"  href = "assets\css\css3.css" />
 		<link rel='stylesheet' type='text/css' href="assets\css\style.php" />
-		<style>
-		
-		</style>
 		<title>Big Talk</title>
-			<h1 id="Big">BIG TALK</h1>
-			<h1>The forum where hard topics are discussed constructively</h1>
+		<ul class="mstructure">
+			<li class="mblock"><a href="Register.php">Register</a></li>
+		</ul>
+		<h1 id="Big">BIG TALK</h1>
+		<h1>The forum where hard topics are discussed constructively</h1>
 	</head>
 	<body onload='document.regForm.reg_usrname.focus()'>
 		<div class="bar">
@@ -34,7 +34,7 @@ $result = $connection -> query ($query)
 		</div>
 		
 		<h2>Enter Your Login-credentials:</h2>
-		<form action="Login-Process.php" name="loginForm">
+		<form action="LoginProcess.php" name="loginForm">
 			<fieldset id="field">
 				<div class="formId">Email:</div>
 					<input class="input" type="text" name="login_usremail" required><br>
