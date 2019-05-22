@@ -15,12 +15,11 @@ if ($connection -> connect_error)
 
 
 $fornamn = "Hej";//$connection -> real_escape_string ($_GET["forNamn"]);
-$efternamn = "DA";//$connection -> real_escape_string ($_GET["efterNamn"]);
-$email = "a@gm.c";//$connection -> real_escape_string ($_GET["mail"]);
+$efternamn = "Hej";//$connection -> real_escape_string ($_GET["efterNamn"]);
+$email = "agm.c";//$connection -> real_escape_string ($_GET["mail"]);
 $text = "Hej";//$connection -> real_escape_string ($_GET["merommig"]);
 
-$query = "INSERT INTO Prgr16_Profile (Förnamn, Efternamn, Email, Merommig)
-VALUES ('".$fornamn."', '".$efternamn."', '".$email."', '".$text."')";
+$query = "INSERT INTO Prgr16_Profile (First, Efternamn, Email, Merommig) VALUES ('".$fornamn."','".$efternamn."','".$email."','".$text."')";
 $connection -> query($query);
 echo $query;
 

@@ -61,7 +61,6 @@ session_start();
 		 for ($i = 0; $i < $randStringLen; $i++) {
 			 $randomString .= $charset[mt_rand(0, strlen($charset) - 1)];
 		 }
-
 		 return $randomString;
 	}
 	////End of function generating salt

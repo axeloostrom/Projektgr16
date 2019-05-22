@@ -24,7 +24,6 @@ $result = $connection -> query ($query)
 		<link rel = "stylesheet" type = "text/css"  href = "assets\css\css3.css" />
 		<link rel='stylesheet' type='text/css' href="assets\css\style.php" />
 		<!--Links to the external php & css-sheets that are being used.-->
-		<link rel="stylesheet" href="Documents/Profile.css">
 		
 		<title>ChangeProfilepage</title>
 			
@@ -43,7 +42,7 @@ $result = $connection -> query ($query)
 	<label> Förnamn: <br> </label> <input type = "text" name = "forNamn"> <br>
 	<label> Efternamn: <br> </label> <input type = "text" name = "efterNamn"> <br>
     <label> Email: <br> </label> <input type = "text" name = "mail"> <br>
-		<label> Mer om mig: <br> </label> <input type = "text" name = "merommig"> <br>
+	<label> Mer om mig: <br> </label> <input type = "text" name = "merommig"> <br>
 	
 	
 	<br> <br> <input type = "submit" value = "Ändra" id = "ändraKnapp" class = "button">
