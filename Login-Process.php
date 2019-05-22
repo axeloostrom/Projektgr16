@@ -24,8 +24,7 @@ session_start();
 		if ( ! $row) 
 		{
 			echo $row;
-			header("Location:Login.php");
-			exit();
+			header("Location:Session.php");
 		}
 		else
 			{
@@ -50,11 +49,11 @@ session_start();
 			
 			if ($_SESSION["hashed_password"] != $_SESSION["db_password"]) 
 			{
-                $message = "Hej";
+               $message = "The password is incorrect!";
 				echo "<script type='text/javascript'>alert('$message');</script>";
 				session_unset(); 
 				session_destroy();
-				header("Location:Login.php");
+				header("Location:Unauthorized.php");
 				
 			}
 		}
