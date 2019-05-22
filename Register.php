@@ -29,13 +29,13 @@ $result = $connection -> query ($query)
 		<style>
 		
 		</style>
-		<title>Uppsala</title>
-			<h1 id="Big">BIG TALK</h1>
-			<h1>The forum where hard topics are discussed constructively</h1>
+		<title>Uppsala Annonstorg</title>
+			<h1 id="Big">Uppsala Annonstorg</h1>
+			<h1>För en mer integrerad stad</h1>
 	</head>
-	<body onload='document.regForm.reg_usrname.focus()'>
+	<body onload='document.regForm.reg_usremail.focus()'>
 		<div class="bar">
-			<h2 id="topic"> Join Our Forum: Register Below</h2>
+			<h2 id="topic"> Bli en Uppis: Registrera nedan</h2>
 		</div>
 		
 		<h2>Register New User</h2>

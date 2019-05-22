@@ -45,7 +45,7 @@ function validateIndexText()
 	}
 	else if (comment == "" || onlySpaces(comment)==true)
 	{
-		alert("You must enter a name")
+		alert("You must enter a comment")
 		return false;
 	}
 	else 
@@ -56,22 +56,15 @@ function validateIndexText()
 
 function validateRegisterText() 
 {
-	var regName = document.regForm.reg_usrname.value; //create new variable for the "reg_usrname"-input from form "regForm" (Register.php)
-	var regPassword = document.regForm.reg_password.value; //create new variable for the "usrname"-input from form "usrForm" (Index.php)
-	
-	if (regName == "" || onlySpaces(regName)==true)
-	{
-		alert("You must enter a name")
-		return false;
-	}
-	else if (regPassword == "" || onlySpaces(regPassword)==true)
+	var regPassword = document.regForm.login_ue.value; //create new variable for the "usrname"-input from form "usrForm" (Index.php)
+	if (regPassword == "" || onlySpaces(regPassword)==true)
 	{
 		alert("You must enter a password")
 		return false;
 	}
 	else 
 	{
-		alert("Tack för din kommentar!")
+		alert("Thank you for creating an account.")
 	}
 }
 
@@ -85,4 +78,3 @@ function onlySpaces(str)
 	}
 	return true;
 }
-
