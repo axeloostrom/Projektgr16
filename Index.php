@@ -1,4 +1,13 @@
 <?php
+// Start the session
+session_start();
+
+if ($_SESSION["hashed_password"] == null) 
+	{
+		header("Location:Login.php");
+	}
+?>
+<?php
 $uname = "dbtrain_850";
 $pass = "rkdrha";
 $host = "dbtrain.im.uu.se";
@@ -12,7 +21,7 @@ if ($connection -> connect_error)
 }
 //Displays "Connection failed" on site if Connection error. Otherwise it displays nothing.
 
-$query = "SELECT * FROM Prgr16";
+$query = "SELECT * FROM Comments";
 $result = $connection -> query ($query)
 ?> 
 <!--Selects all data from table "Comments in database.-->
@@ -25,8 +34,8 @@ $result = $connection -> query ($query)
 		<link rel='stylesheet' type='text/css' href="assets\css\style.php" />
 		<!--Links to the external php & css-sheets that are being used.-->
 		<ul class="mstructure">
-			<li class="mblock"><a class="active" href="#home">Topics</a></li>
-			<li class="mblock"><a href="#news">Logout</a></li>
+			<li class="mblock"><a class="active" href="Index.php">Topics</a></li>
+			<li class="mblock"><a href="Logout-process.php">Logout</a></li>
 		</ul>
 		
 		<title>Big Talk</title>
