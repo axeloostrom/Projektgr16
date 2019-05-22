@@ -50,11 +50,11 @@ session_start();
 			
 			if ($_SESSION["hashed_password"] != $_SESSION["db_password"]) 
 			{
-				$message = "The password is incorrect!";
+                $message = "Hej";
 				echo "<script type='text/javascript'>alert('$message');</script>";
 				session_unset(); 
 				session_destroy();
-				header("Refresh:0.1; Location:Login.php");
+				header("Location:Login.php");
 				
 			}
 		}

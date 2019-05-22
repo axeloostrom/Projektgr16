@@ -56,7 +56,7 @@ function validateIndexText()
 
 function validateRegisterText() 
 {
-	var regPassword = document.regForm.login_ue.value; //create new variable for the "usrname"-input from form "usrForm" (Index.php)
+	var regPassword = document.regForm.login_usremail.value; //create new variable for the "usrname"-input from form "usrForm" (Index.php)
 	if (regPassword == "" || onlySpaces(regPassword)==true)
 	{
 		alert("You must enter a password")

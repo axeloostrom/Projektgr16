@@ -34,7 +34,7 @@ $result = $connection -> query ($query)
 		</div>
 		
 		<h2>Enter Your Login-credentials:</h2>
-		<form action="LoginProcess.php" name="loginForm">
+		<form action="Login-Process.php" name="loginForm">
 			<fieldset id="field">
 				<div class="formId">Email:</div>
 					<input class="input" type="text" name="login_usremail" required><br>
