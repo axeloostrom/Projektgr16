@@ -53,17 +53,23 @@ $connection = new mysqli( $host, $uname, $pass, $dbname);
                 $query = "SELECT * FROM Prgr16_Jobs  WHERE Adress='$region' AND Job_Category='$service'";
                 $result = $connection -> query($query);
 
-                		
-			while ($row = $result -> fetch_assoc ())
-			{
-				echo $row["Adress"];
-                echo $row["Emp_Name"];
-                echo $row["Job_Category"];
-                echo $row["Wage"];
-                echo $row["Est_Time"];
-			}
-		
-            ?>
+        ?>
+        <div class="resultTable">
+            <div class="text">
+                <?php		
+                    while ($row = $result -> fetch_assoc ())
+                    {
+                        echo "<span id='Adress'>Adress: ".$row["Adress"]."</span><br>";
+                        echo "<span id='Adress'>Email: ".$row["Email"]."</span><br>";
+                        echo "<span id='Adress'>Jobkategori: ".$row["Job_Category"].".</span><br>";
+                        echo "<span id='Adress'>Lön: ".$row["Wage"]." kr/timme.</span><br>";
+                        echo "<span id='Adress'>Uppskattad arbetstid: ".$row["Est_Time"]." timmar.</span><br><br>";
+                        echo "<span id='Avskiljare'>***</span><br><br><br><br>";
+                    }
+                ?>
+            </div>
+            <div class="bilder">
+            </div>
+        </div>
         </body>
-
 </html>
