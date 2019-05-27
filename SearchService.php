@@ -12,12 +12,25 @@ $connection = new mysqli( $host, $uname, $pass, $dbname);
 	}
 ?>
 <html>
-    <head>
-        <meta charset="UTF-8">
-    </head>
-        <body>
-            <h1> Lediga tjänster </h1>
-             Jobbkategori: </br>
+	<head>
+		<meta charset = "UTF-8">
+		<link rel = "stylesheet" type = "text/css"  href = "assets\css\css3.css" />
+		<link rel='stylesheet' type='text/css' href="assets\css\style.php" />
+		<!--Links to the external php & css-sheets that are being used.-->
+		<ul class="mstructure">
+			<li class="mblock"><a class="active" href="ChangeProfile.php">Min Profil</a></li>
+			<li class="mblock"><a href="Logout-process.php">Logout</a></li>
+		</ul>
+		
+		<title>Uppsala Annonstorg</title>
+			<h1 id="Big">Uppsala Annonstorg</h1>
+	</head>
+	<body>
+
+	<!--Allows the user to instantly write their name that they use when posting a comment-->
+		<div class="bar">
+			<h2 id="topic">Lediga Jobb</h2>
+		</div>
              <form action="SearchService.php" method="post">
             <select id="service" name="service"> 
                 <option value="Välj tjänst" id="abc" name="abc">Välj tjänst...</option>
