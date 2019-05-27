@@ -1,18 +1,8 @@
 <?php
-$uname = "dbtrain_850";
-$pass = "rkdrha";
-$host = "dbtrain.im.uu.se";
-$dbname = "dbtrain_850";	
-//Login-credentials for database	
+include 'Include/DB.php';
+	authorization(); //Checks whether the Session variable "hashed_password" has been set.
 
-$connection = new mysqli( $host, $uname, $pass, $dbname);
-if ($connection -> connect_error)
-{
-	die ("Connection failed:".$connection.connect_error) ;
-}
-//Displays "Connection failed" on site if Connection error. Otherwise it displays nothing.
-
-$query = "SELECT * FROM Prgr16_Jobs WHERE AID='1'";
+$query = "SELECT * FROM Prgr16_Jobs WHERE AID='$_SESSION["AID"]'";
 $result = $connection -> query ($query)
 
 ?>
@@ -32,14 +22,12 @@ $result = $connection -> query ($query)
 	
 	<body>
 		<?php
-
 			while ($row = $result -> fetch_assoc())
 			{
-			echo $row['Emp_Name'];
-			echo $row['Job_Category'];
-			echo $row['Adress'];
-			echo $row['Wage'];
-			echo $row['Est_Time'];
+			echo $row["Job_Category"];
+			echo $row["Adress"];
+			echo $row["Wage"];
+			echo $row["Est_Time"];
 			}
 		?>
 	</body>
