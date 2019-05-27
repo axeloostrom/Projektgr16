@@ -35,11 +35,11 @@ $result = $connection -> query ($query)
 
 			while ($row = $result -> fetch_assoc())
 			{
-			echo $row['Emp_Name']
-			echo $row['Job_Category']
-			echo $row['Adress']
-			echo $row['Wage']
-			echo $row['Est_Time']
+			echo $row['Emp_Name'];
+			echo $row['Job_Category'];
+			echo $row['Adress'];
+			echo $row['Wage'];
+			echo $row['Est_Time'];
 			}
 		?>
 	</body>

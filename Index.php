@@ -1,28 +1,7 @@
+
 <?php
-// Start the session
-session_start();
-
-if ($_SESSION["hashed_password"] == null) 
-	{
-		header("Location:Login.php");
-	}
-?>
-<?php
-$uname = "dbtrain_850";
-$pass = "rkdrha";
-$host = "dbtrain.im.uu.se";
-$dbname = "dbtrain_850";	
-//Login-credentials for database	
-
-$connection = new mysqli( $host, $uname, $pass, $dbname);
-if ($connection -> connect_error)
-{
-	die ("Connection failed:".$connection.connect_error) ;
-}
-//Displays "Connection failed" on site if Connection error. Otherwise it displays nothing.
-
-$query = "SELECT * FROM Comments";
-$result = $connection -> query ($query)
+	include 'Include/DB.php';
+	authorization(); //Checks whether the Session variable "hashed_password" has been set.
 ?> 
 <!--Selects all data from table "Comments in database.-->
 
@@ -38,8 +17,8 @@ $result = $connection -> query ($query)
 			<li class="mblock"><a href="Logout-process.php">Logout</a></li>
 		</ul>
 		
-		<title>Big Talk</title>
-			<h1 id="Big">BIG TAL</h1>
+		<title>Uppsala Annonstorg</title>
+			<h1 id="Big">Upp</h1>
 			<h1>The forum where hard topics are discussed constructively</h1>
 	</head>
 	<body onload='document.usrForm.usrname.focus()'>
@@ -48,20 +27,6 @@ $result = $connection -> query ($query)
 		<div class="bar">
 			<h2 id="topic"> Topic #328: How might Industrial Countries help Developing ones most effectively?</h2>
 		</div>
-		<!--Start of div containing previous comments-->
-		<div class="prevcomments">
-		<?php
-			while ($row = $result -> fetch_assoc () )
-			{
-				echo "<span class='Bnum'>Post #".$row["Bnum"]. "</span><br><br>"; //Fetches the data in the column "Bnum" from the database. Increments by one for every new comment.
-				echo "<span class='Bname'>Made by: ".$row["Name"]. "</span>"; //Fetches the data in the column "Name" from the database.
-				echo "<br/>";
-				echo "<span class='Bcomment'>''".$row["Comment"]. "'' <br/></span><br>"; //Fetches the data in the column "Bcomment" from the database.
-				echo "<span class='Stars'>***</span><br><br><br>"; //Adds three stars to mark the end of a comment.
-			}
-		?>
-		</div>
-		<!--End of div containing previous comments-->
 	 	<!--Start of Posting Form-->
 		<form action="Posts-Create.php" name="usrForm">
 			<fieldset id="field">

@@ -1,87 +1,22 @@
 <?php
-// Start the session
-session_start();
-?>
-<?php
-	$uname = "dbtrain_850";
-	$pass = "rkdrha";
-	$host = "dbtrain.im.uu.se";
-	$dbname = "dbtrain_850";		
-
-	$connection = new mysqli( $host, $uname, $pass, $dbname);
-	if ($connection -> connect_error)
-	{
-		die ("Connection failed:".$connection.connect_error) ;
-	}
-
+	include 'Include/DB.php';
+	$connection = dbconnect();
 	$emailpre = $connection -> real_escape_string($_GET ["reg_usremail"]); //Fetches the input email that is used when posting a comment and saves it in a variable
 	$realpasswordpre = $connection -> real_escape_string($_GET ["reg_password"]); //Fetches the inputted comment and saves it in a variable
 	
+	
 	//Start of Server validation
-	$emailmiddle = test_email($emailpre);
-	$realpassword= test_input($realpasswordpre);
+	include 'Include/ServerValidationRegister.php';
+	$emailmiddle = test_email($emailpre); //Initial test of email checking whether it contains '@' and '.'.
+	$realpassword= test_input($realpasswordpre); //Test of password checking the length of it after removing spaces, special characters and unquoting the string.
 	$email = test_input($emailmiddle);
 	
-	function test_email($data)
-	{
-		if (!stristr($data,"@") OR !stristr($data,".") OR strlen($data)==0) 
-		{ 
-			header("Location:Register.php");
-		}
-		else 
-		{
-			return $data;
-		}
-	}
-	function test_input($data) 
-	{
-	  $data = trim($data); //Removes spaces
-	  $data = stripslashes($data); //Unquotes a quoted string
-	  $data = htmlspecialchars($data); //Removes special chars
-	  if (strlen($data)==0) 
-	  {
-		header("Location:Register.php");
-		exit();
-	  }
-	  return $data;
-	}
+	$query = "SELECT * FROM Prgr16_User WHERE Email='$email'"; //Select all users in db that has same email as variable "@email".
+	$result = $connection -> query ($query);
+	$row = $result->fetch_assoc();
 	
-	//End of Server validation
+	insertToDB($connection,$row,$email,$realpassword); //Insert to db if no rows are returned.
 	
-	$salt = $connection -> real_escape_string(generateSalt());
-
-	//Start of Hashfunction
-	////Start of function generating salt
-
-	function generateSalt() {
-		 $charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/\\][{}\'";:?.>,<!@#$%^&*()-_=+|';
-		 $randStringLen = 22; //Lenght of Salt
-
-		 $randomString = "";
-		 for ($i = 0; $i < $randStringLen; $i++) {
-			 $randomString .= $charset[mt_rand(0, strlen($charset) - 1)];
-		 }
-		 return $randomString;
-	}
-	////End of function generating salt
-
-	$options = 
-		[
-			'salt' => $salt,
-			'cost' => 12 
-		];
-
-	$hashed_password = password_hash($realpassword, PASSWORD_DEFAULT,$options);
-	//End of Hashfunction
-
-	//Start of inserting values into database
-	$query = "INSERT INTO Prgr16_User ( Email, Password, Salt ) VALUES ('".$email."','".$hashed_password."','".$salt."')";
-	$connection -> query($query);
-	//End of insert values into database
-	
-	//Start of creating session variable of user-input
-	$_SESSION["hashed_password"] = $hashed_password;
-	//End of creating session variable of user-input
 ?>		
 <html>
 	<head>

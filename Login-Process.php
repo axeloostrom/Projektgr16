@@ -1,62 +1,15 @@
 <?php
-// Start the session
-session_start();
-?>
-<?php
-	$uname = "dbtrain_850";
-	$pass = "rkdrha";
-	$host = "dbtrain.im.uu.se";
-	$dbname = "dbtrain_850";		
-
-	$connection = new mysqli( $host, $uname, $pass, $dbname);
-	if ($connection -> connect_error)
-	{
-		die ("Connection failed:".$connection.connect_error) ;
-	}
+	include 'Include/DB.php';
+	$connection = dbconnect(); 
 
 	$login_email = $connection -> real_escape_string($_GET ["login_usremail"]); //Fetches the input email that is used when user logs in and saves it in a variable
 	$login_password = $connection -> real_escape_string($_GET ["login_password"]); //Fetches the inputted user password and saves it in a variable.
-
-		$query = "SELECT * FROM Prgr16_User WHERE Email='$login_email'";
+		$query = "SELECT * FROM User WHERE Email='$login_email'";
 		$result = $connection -> query ($query);
 		//Start fetching database-values for later comparison
 		$row = $result->fetch_assoc();
-		if ( ! $row) 
-		{
-			echo $row;
-			header("Location:Session.php");
-		}
-		else
-			{
-				$db_email = $row ["Email"];
-				$db_salt = $row["Salt"] ;//Fungerar
-				$db_password = $row["Password"];
-			
-			//Start of Hashfunction
-			$options = 
-				[
-					'salt' => $db_salt,
-					'cost' => 12 
-				];
-			$hashed_password = password_hash($login_password, PASSWORD_DEFAULT,$options);
-			//End of Hashfunction
-			//Start of creating session variables of user-input
-			$_SESSION["email"] = $login_email;
-			$_SESSION["hashed_password"] = $hashed_password;
-			$_SESSION["salt"] = $db_salt;
-			$_SESSION["db_password"] = $db_password;
-			//End of creating session variables of user-input
-			
-			if ($_SESSION["hashed_password"] != $_SESSION["db_password"]) 
-			{
-               $message = "The password is incorrect!";
-				echo "<script type='text/javascript'>alert('$message');</script>";
-				session_unset(); 
-				session_destroy();
-				header("Location:Unauthorized.php");
-				
-			}
-		}
+		include 'Include/LoginValidation.php';
+		matchInputWithDB($connection,$row,$login_email,$login_password); //Sends four variables to this function on the LoginValidation-php page.
 ?>
 <html>
 	<head>
@@ -72,11 +25,10 @@ session_start();
 	</head>
 	<body onload='document.regForm.reg_usrname.focus()'>
 		<div class="bar">
-			<h2 id="topic"> Login Succesful.</h2>
+			<h2 id="topic">Trying to log in...</h2>
 		</div>
-		<h3>You will be redirected to the commentpage in 5 seconds...</h3>
+		<?php	
+			header("Refresh: 3; URL=SearchService.php");
+		?>
 	</body>
 </html>
-<?php	
-	header("Refresh: 3; URL=Index.php");
-?>
