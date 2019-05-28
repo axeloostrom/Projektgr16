@@ -92,7 +92,7 @@ include 'Include/DB.php';
                         
                         $_SESSION["AID"] =$row["AID"];
                         echo $_SESSION["AID"];
-                        echo "<span id='Adress'>Adress: <a href='Annonssida.php".$_SESSION["AID"]."'>".$row["Adress"]."</a></span><br>";
+                        echo "<span id='Adress'>Adress: <a href='Annonssida".$_SESSION["AID"].".php'>".$row["Adress"]."</a></span><br>";
                         echo "<span id='Adress'>Email: ".$row["Email"]."</span><br>";
                         echo "<span id='Adress'>Jobkategori: ".$row["Job_Category"].".</span><br>";
                         echo "<span id='Adress'>Lön: ".$row["Wage"]." kr/timme.</span><br>";
