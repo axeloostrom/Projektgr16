@@ -33,7 +33,7 @@ include 'Include/DB.php';
 		<link rel='stylesheet' type='text/css' href="assets\css\style.php" />
 		<!--Links to the external php & css-sheets that are being used.-->
 		<ul class="mstructure">
-			<li class="mblock"><a class="active" href="ChangeProfile.php">Min Profil</a></li>
+			<li class="mblock"><a class="active" href="Profile.php">Min Profil</a></li>
 			<li class="mblock"><a href="Logout-process.php">Logout</a></li>
 		</ul>
 		
