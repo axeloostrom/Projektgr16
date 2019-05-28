@@ -83,20 +83,7 @@ include 'Include/DB.php';
 
                 $query = "SELECT * FROM Prgr16_Jobs  WHERE Adress='$region' AND Job_Category='$service'";
                 $result = $connection -> query($query);
-
-
-                		
-			while ($row = $result -> fetch_assoc ())
-			{
-                echo $row["Emp_Name"];
-                echo $row["Job_Category"];
-                echo $row["Wage"];
-                echo $row["Est_Time"];
-			}
-		    //tryck vidare för AnnonsSida.php
             ?>
-        </body>
-        
         <div class="resultTable">
             <div class="text">
                 <?php		
