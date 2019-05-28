@@ -1,20 +1,7 @@
 <?php
-$uname = "dbtrain_850";
-$pass = "rkdrha";
-$host = "dbtrain.im.uu.se";
-$dbname = "dbtrain_850";	
-//Login-credentials for database	
-
-$connection = new mysqli( $host, $uname, $pass, $dbname);
-if ($connection -> connect_error)
-{
-	die ("Connection failed:".$connection.connect_error) ;
-}
-//Displays "Connection failed" on site if Connection error. Otherwise it displays nothing.
-
-$query = "SELECT * FROM Prgr16";
-$result = $connection -> query ($query)
-
+include 'Include/DB.php';
+$connection = dbconnect();
+authorization(); //Checks whether the Session variable "hashed_password" has been set. 
 ?>
 
 
