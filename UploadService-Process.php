@@ -25,6 +25,19 @@ $query = "INSERT INTO Prgr16_Jobs (Email, Job_Category, Adress, Est_Time, Wage, 
         VALUES ('".$email."', '".$job_categpry."', '".$adress."', '".$wage."', '".$est_time."', '".$description."')"; 
 
 $connection -> query ($query);
+//
+ $title ='Annonssida.php3';
+    echo "$title har skapats";
+    //the data
 
+    $data = "Hey I am Aidan\n";
 
+    //open the file and choose the mode
+
+    $fh = fopen($title, "a");
+    fwrite($fh, $data);
+
+    //close the file
+
+    fclose($fh);
 ?>
