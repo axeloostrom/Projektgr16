@@ -3,19 +3,20 @@
 	$connection = dbconnect();
 	$emailpre = $connection -> real_escape_string($_GET ["reg_usremail"]); //Fetches the input email that is used when posting a comment and saves it in a variable
 	$realpasswordpre = $connection -> real_escape_string($_GET ["reg_password"]); //Fetches the inputted comment and saves it in a variable
-	
+	$merommigpre = $connection -> real_escape_string($_GET ["merommig"]);
 	
 	//Start of Server validation
 	include 'Include/ServerValidationRegister.php';
 	$emailmiddle = test_email($emailpre); //Initial test of email checking whether it contains '@' and '.'.
 	$realpassword= test_input($realpasswordpre); //Test of password checking the length of it after removing spaces, special characters and unquoting the string.
 	$email = test_input($emailmiddle);
-	
+	$merommig = test_input($merommigpre);
+
 	$query = "SELECT * FROM Prgr16_User WHERE Email='$email'"; //Select all users in db that has same email as variable "@email".
 	$result = $connection -> query ($query);
 	$row = $result->fetch_assoc();
 	
-	insertToDB($connection,$row,$email,$realpassword); //Insert to db if no rows are returned.
+	insertToDB($connection,$row,$email,$realpassword,$merommig); //Insert to db if no rows are returned.
 	
 ?>		
 <html>
@@ -40,5 +41,5 @@
 	</body>
 </html>
 <?php	
-header("Refresh: 5; URL=Index.php");
+header("Refresh: 5; URL=SearchService.php");
 ?>

@@ -22,10 +22,12 @@
 		<h2>Register New User</h2>
 		<form action="Register-Process.php" name="regForm"> <!--When executed it refers to the php-document Register-Process-->
 			<fieldset id="field">
-				<div class="formId">Email:</div>
+				<div class="formId">Mail:</div>
 					<input class="input" type="text" name="reg_usremail" required><br>
-				<div class="formId">Password:</div>
-					<input class="formId" type "text" name="reg_password" required><br>
+				<div class="formId">Lösenord:</div>
+					<input class="formId" type="text" name="reg_password" required><br>
+				<div class="formId">Mer om Mig:</div>
+					<textarea class="formId" type="textarea" name="merommig" required></textarea>
 					<h4 class="reminder">Remember that the password and e-mail has to be 8 characters or longer!</h4>
 				<input class="subbutton"type="submit" value="Create User" onclick="validateRegisterEmail(document.regForm.reg_usremail)">
 			</fieldset>

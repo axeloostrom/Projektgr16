@@ -14,12 +14,24 @@ if ($connection -> connect_error)
 
 
 
-$fornamn = "Hej";//$connection -> real_escape_string ($_GET["forNamn"]);
-$efternamn = "Hej";//$connection -> real_escape_string ($_GET["efterNamn"]);
-$email = "agm.c";//$connection -> real_escape_string ($_GET["mail"]);
-$text = "Hej";//$connection -> real_escape_string ($_GET["merommig"]);
+$mom = "hej";
+$pass = $connection -> real_escape_string ($_GET["efterNamn"]);
+$email = $connection -> real_escape_string ($_GET["mail"]);
+$salt = $connection -> real_escape_string ($_GET["merommig"]);
+if ($email="")
+{
+	
+}
+else
+{
+	$_Session["merommig"] = $email;
+}
+if ($email="")
+{
+	
 
-$query = "INSERT INTO Prgr16_Profile (First, Efternamn, Email, Merommig) VALUES ('".$fornamn."','".$efternamn."','".$email."','".$text."')";
+
+$query = "INSERT INTO Prgr16_Profile (First, Efternamn, Email, Merommig) VALUES ('".$email."', '".$pass."', '".$salt."', '".$mom."')";
 $connection -> query($query);
 echo $query;
 
