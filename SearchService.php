@@ -1,5 +1,6 @@
 <?php
 
+
 //Måste göra så att det krävs att man är inloggad för att söka upp tjänst
 
 $uname = "dbtrain_850";
@@ -20,6 +21,32 @@ $connection = new mysqli( $host, $uname, $pass, $dbname);
         <body>
             <h1> Lediga tjänster </h1>
              Jobbkategori: </br>
+<?php
+include 'Include/DB.php';
+    $connection = dbconnect();
+	authorization();
+?>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<link rel = "stylesheet" type = "text/css"  href = "assets\css\css3.css" />
+		<link rel='stylesheet' type='text/css' href="assets\css\style.php" />
+		<!--Links to the external php & css-sheets that are being used.-->
+		<ul class="mstructure">
+			<li class="mblock"><a class="active" href="ChangeProfile.php">Min Profil</a></li>
+			<li class="mblock"><a href="Logout-process.php">Logout</a></li>
+		</ul>
+		
+		<title>Uppsala Annonstorg</title>
+			<h1 id="Big">Uppsala Annonstorg</h1>
+	</head>
+	<body>
+
+	<!--Allows the user to instantly write their name that they use when posting a comment-->
+		<div class="bar">
+			<h2 id="topic">Lediga Jobb</h2>
+		</div>
+
              <form action="SearchService.php" method="post">
             <select id="service" name="service"> 
                 <option value="Välj tjänst" id="abc" name="abc">Välj tjänst...</option>
@@ -43,6 +70,8 @@ $connection = new mysqli( $host, $uname, $pass, $dbname);
                 <option value="Studentstaden" id="Stud" name="Stud">Studentstaden</option>
                 <option value="Centrum" id="C" name="C">Centrum</option>
                 <option value="To be continued" id="tb" name="tb">Övrigt</option>
+                <option value="To be continued" id="tb" name="tb">To be continued</option>
+
             </select>
             </br> </br> <input type="submit" id="search" value="Sök">
             </form>
@@ -55,6 +84,7 @@ $connection = new mysqli( $host, $uname, $pass, $dbname);
                 $query = "SELECT * FROM Prgr16_Jobs  WHERE Adress='$region' AND Job_Category='$service'";
                 $result = $connection -> query($query);
 
+
                 		
 			while ($row = $result -> fetch_assoc ())
 			{
@@ -66,6 +96,38 @@ $connection = new mysqli( $host, $uname, $pass, $dbname);
 			}
 		    //tryck vidare för AnnonsSida.php
             ?>
+        </body>
+        
+        <div class="resultTable">
+            <div class="text">
+                <?php		
+                    while ($row = $result -> fetch_assoc ())
+                    {
+                        
+                        $_SESSION["AID"] =$row["AID"];
+                        echo $_SESSION["AID"];
+                        echo "<span id='Adress'>Adress: <a href='Annonssida.php".$_SESSION["AID"]."'>".$row["Adress"]."</a></span><br>";
+                        echo "<span id='Adress'>Email: ".$row["Email"]."</span><br>";
+                        echo "<span id='Adress'>Jobkategori: ".$row["Job_Category"].".</span><br>";
+                        echo "<span id='Adress'>Lön: ".$row["Wage"]." kr/timme.</span><br>";
+                        echo "<span id='Adress'>Uppskattad arbetstid: ".$row["Est_Time"]." timmar.</span><br><br>";
+                        echo "<span id='Avskiljare'>***</span><br><br><br><br>";
+                        //Linkmodifyer.com<?php
+              
+                            /*if(isset($_POST['textdata'])) NEED TO CREATE NEW FILE IN ORDER FOR PATH TO WORK.
+                            {
+                            $data=$_POST['textdata'];
+                            $fp = fopen('data.txt', 'a');
+                            fwrite($fp, $data);
+                            fclose($fp);
+                            }
+                            ?>*/
+                    }
+                ?>
+            </div>
+            <div class="bilder">
+            </div>
+        </div>
         </body>
 
 </html>

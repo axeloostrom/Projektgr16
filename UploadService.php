@@ -54,6 +54,10 @@ $connection = new mysqli( $host, $uname, $pass, $dbname);
              <textarea input type="text" id="message" name="message" rows="10" cols="50"></textarea>
 
             </br> </br> <input type="submit" id="search" value="Ladda upp">
+
             </form>
 
-        <?php
+
+
+            </form>
+

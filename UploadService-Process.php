@@ -13,12 +13,13 @@ session_start();
 		die ("Connection failed:".$connection.connect_error) ;
 	}
 
-$adress = $_POST['region'];
-$email = $_POST['mail'];
-$est_time = $_POST['hours'];
-$job_categpry = $_POST['service'];
-$wage = $_POST['wage'];
-$description = $_POST['message'];
+$adress = $connection -> real_escape_string($_POST['region']);
+$email = $connection -> real_escape_string($_POST['mail']);
+$est_time = $connection -> real_escape_string($_POST['hours']);
+$job_categpry = $connection -> real_escape_string($_POST['service']);
+$wage = $connection -> real_escape_string($_POST['wage']);
+$description = $connection -> real_escape_string($_POST['message']);
+
 
 $query = "INSERT INTO Prgr16_Jobs (Email, Job_Category, Adress, Est_Time, Wage, Description) 
         VALUES ('".$email."', '".$job_categpry."', '".$adress."', '".$wage."', '".$est_time."', '".$description."')"; 
