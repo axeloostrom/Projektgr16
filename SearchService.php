@@ -88,7 +88,6 @@ include 'Include/DB.php';
                 		
 			while ($row = $result -> fetch_assoc ())
 			{
-				echo $row["Adress"];
                 echo $row["Emp_Name"];
                 echo $row["Job_Category"];
                 echo $row["Wage"];
