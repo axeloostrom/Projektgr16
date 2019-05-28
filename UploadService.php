@@ -1,22 +1,22 @@
 <?php
-
-//Måste göra så att det krävs att man är inloggad för att ladda upp tjänst
-
-$uname = "dbtrain_850";
-$pass = "rkdrha";
-$host = "dbtrain.im.uu.se";
-$dbname = "dbtrain_850";		
-
-$connection = new mysqli( $host, $uname, $pass, $dbname);
-    if ($connection -> connect_error)
-	{
-		die ("Connection failed:".$connection.connect_error) ;
-	}
+include 'Include/DB.php';
+	authorization(); //Checks whether the Session variable "hashed_password" has been set.
 ?>
 <html>
     <head>
-        <meta charset="UTF-8">
-    </head>
+		<meta charset = "UTF-8">
+		<link rel = "stylesheet" type = "text/css"  href = "assets\css\css3.css" />
+		<link rel='stylesheet' type='text/css' href="assets\css\style.php" />
+		<!--Links to the external php & css-sheets that are being used.-->
+		<ul class="mstructure">
+			<li class="mblock"><a class="active" href="Index.php">Topics</a></li>
+			<li class="mblock"><a href="Logout-process.php">Logout</a></li>
+		</ul>
+		
+		<title>Uppsala Annonstorg</title>
+			<h1 id="Big">Upp</h1>
+			<h1>The forum where hard topics are discussed constructively</h1>
+	</head>
         <body>
             <h1> Ladda upp tjänst </h1>
              Jobbkategori: </br>
