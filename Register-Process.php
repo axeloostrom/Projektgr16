@@ -1,4 +1,5 @@
 <?php
+
 	include 'Include/DB.php';
 	$connection = dbconnect();
 	$emailpre = $connection -> real_escape_string($_GET ["reg_usremail"]); //Fetches the input email that is used when posting a comment and saves it in a variable
@@ -15,6 +16,7 @@
 	$query = "SELECT * FROM Prgr16_User WHERE Email='$email'"; //Select all users in db that has same email as variable "@email".
 	$result = $connection -> query ($query);
 	$row = $result->fetch_assoc();
+	$_SESSION["UID"] = $uid;
 	
 	insertToDB($connection,$row,$email,$realpassword,$merommig); //Insert to db if no rows are returned.
 	

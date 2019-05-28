@@ -10,6 +10,7 @@
 		$row = $result->fetch_assoc();
 		include 'Include/LoginValidation.php';
 		matchInputWithDB($connection,$row,$login_email,$login_password); //Sends four variables to this function on the LoginValidation-php page.
+		$_SESSION["UID"] = $uid;
 ?>
 <html>
 	<head>

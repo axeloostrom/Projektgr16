@@ -1,4 +1,6 @@
 <?php
+
+session_start();
 $uname = "dbtrain_850";
 $pass = "rkdrha";
 $host = "dbtrain.im.uu.se";
@@ -11,29 +13,33 @@ if ($connection -> connect_error)
 	die ("Connection failed:".$connection.connect_error) ;
 }
 //Displays "Connection failed" on site if Connection error. Otherwise it displays nothing.
+$_SESSION["merommig"];
+$_SESSION["UID"];
 
-
-
-$mom = "hej";
-$pass = $connection -> real_escape_string ($_GET["efterNamn"]);
-$email = $connection -> real_escape_string ($_GET["mail"]);
-$salt = $connection -> real_escape_string ($_GET["merommig"]);
-if ($email="")
+if(!isset($_SESSION["UID"]))
 {
-	
+	echo "fel";
 }
-else
-{
-	$_Session["merommig"] = $email;
+else{
+	echo "rätt";
 }
-if ($email="")
+
+$merommig = mysqli_real_escape_string ($connection, $_GET['merommig']);
+$ny_merommig = "";
+
+if ($merommig !="")
 {
-	
+	$ny_merommig = $merommig;
+}
+else 
+{
+	echo "funka ej";
+}
 
-
-$query = "INSERT INTO Prgr16_Profile (First, Efternamn, Email, Merommig) VALUES ('".$email."', '".$pass."', '".$salt."', '".$mom."')";
+$query = "UPDATE Prgr16_Profile SET Merommig='$ny_merommig' WHERE UID='" . $_SESSION['UID'] . "'";
 $connection -> query($query);
-echo $query;
 
-header ("Refresh: 2, URL = ChangeProfile.php");
+
+//header ("Refresh: 2, URL = ChangeProfile.php");
 ?>
+
