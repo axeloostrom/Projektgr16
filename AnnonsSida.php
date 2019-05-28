@@ -1,9 +1,10 @@
 <?php
 include 'Include/DB.php';
+	$connection = dbconnect();
 	authorization(); //Checks whether the Session variable "hashed_password" has been set.
-
-$query = "SELECT * FROM Prgr16_Jobs WHERE AID='$_SESSION["AID"]'";
-$result = $connection -> query ($query)
+//$_SESSION["AID"]=1;
+$query = "SELECT * FROM Prgr16_Jobs WHERE AID='$_SESSION[AID]'";
+$result = $connection -> query ($query);
 
 ?>
 
@@ -24,6 +25,7 @@ $result = $connection -> query ($query)
 		<?php
 			while ($row = $result -> fetch_assoc())
 			{
+			echo $_SESSION["AID"];
 			echo $row["Job_Category"];
 			echo $row["Adress"];
 			echo $row["Wage"];

@@ -13,7 +13,7 @@
 	</head>
 	<body onload='document.loginForm.login_usremail.focus()'>
 		<div class="bar">
-			<h2 id="topic">Välkommen tillbaka till oss!</h2>
+			<h2 id="topic">Välkommen tillbaka<br>till oss!</h2>
 		</div>
 		
 		<h2>Skriv in dina användaruppgifter:</h2>

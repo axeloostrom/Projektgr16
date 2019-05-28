@@ -12,12 +12,12 @@
 	</head>
 	<body onload='document.loginForm.login_usremail.focus()'>
 		<div class="bar">
-			<h2 id="topic">Välkommen tillbaka till oss!</h2>
+			<h2 id="topic">Välkommen tillbaka<br>till oss!</h2>
 		</div>
-		<h1>Ogiltiga Användaruppgifter. Är du säker på att du är medlem?</h1>
 		<h2>Skriv in dina användaruppgifter:</h2>
 		<form action="Login-Process.php" name="loginForm">
 			<fieldset id="field">
+			<h1 id="ogiltigt">Ogiltiga Användaruppgifter. Är du säker på att du är medlem?</h1>
 				<div class="formId">Email:</div>
 					<input class="input" type="text" name="login_usremail" required><br>
 				<div class="formId">Password:</div>

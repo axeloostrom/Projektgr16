@@ -1,15 +1,7 @@
 <?php
-
-$uname = "dbtrain_850";
-$pass = "rkdrha";
-$host = "dbtrain.im.uu.se";
-$dbname = "dbtrain_850";		
-
-$connection = new mysqli( $host, $uname, $pass, $dbname);
-    if ($connection -> connect_error)
-	{
-		die ("Connection failed:".$connection.connect_error) ;
-	}
+include 'Include/DB.php';
+    $connection = dbconnect();
+	authorization();
 ?>
 <html>
 	<head>
@@ -72,12 +64,25 @@ $connection = new mysqli( $host, $uname, $pass, $dbname);
                 <?php		
                     while ($row = $result -> fetch_assoc ())
                     {
-                        echo "<span id='Adress'>Adress: ".$row["Adress"]."</span><br>";
+                        
+                        $_SESSION["AID"] =$row["AID"];
+                        echo $_SESSION["AID"];
+                        echo "<span id='Adress'>Adress: <a href='Annonssida.php".$_SESSION["AID"]."'>".$row["Adress"]."</a></span><br>";
                         echo "<span id='Adress'>Email: ".$row["Email"]."</span><br>";
                         echo "<span id='Adress'>Jobkategori: ".$row["Job_Category"].".</span><br>";
                         echo "<span id='Adress'>Lön: ".$row["Wage"]." kr/timme.</span><br>";
                         echo "<span id='Adress'>Uppskattad arbetstid: ".$row["Est_Time"]." timmar.</span><br><br>";
                         echo "<span id='Avskiljare'>***</span><br><br><br><br>";
+                        //Linkmodifyer.com<?php
+              
+                            /*if(isset($_POST['textdata'])) NEED TO CREATE NEW FILE IN ORDER FOR PATH TO WORK.
+                            {
+                            $data=$_POST['textdata'];
+                            $fp = fopen('data.txt', 'a');
+                            fwrite($fp, $data);
+                            fclose($fp);
+                            }
+                            ?>*/
                     }
                 ?>
             </div>
