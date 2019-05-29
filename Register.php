@@ -19,7 +19,7 @@
 			<h2 id="topic"> Bli en Uppis: Registrera nedan</h2>
 		</div>
 		
-		<h2>Register New User</h2>
+		<label id="log">Registrering</label>
 		<form action="Register-Process.php" name="regForm"> <!--When executed it refers to the php-document Register-Process-->
 			<fieldset id="field">
 				<div class="formId">Mail:</div>

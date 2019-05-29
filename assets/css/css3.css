@@ -6,11 +6,12 @@ body {
 
 .bar {
 	background-color:navy;
-	border-radius:50% 50% 50% 50%;
+	border-radius:25% 25% 25% 25%;
 	width:20%;
 	margin-left:40%;
 	margin-right:40%;
 	text-align: center;
+	
 
 }
 
@@ -47,13 +48,16 @@ h1 {
 }
 
 #field {
-border: 2px solid black;
-background-image: url("../../assets/img/Comment.png");
-opacity:0.9;
-margin-top:3%;
-margin-bottom:3%;
-color:darkgrey;
-font-size:120%;
+ margin: 50px auto;
+  width: 640px;
+ margin: 0 auto;
+  padding: 20px 20px 20px;
+  width: 310px;
+  background-color: #f3f3f3;
+  border-radius: 3px 3px 3px 3px;
+  border-color: white;
+  color: #555;
+  position: relative;
 }
 
 #commentbox {
@@ -62,15 +66,49 @@ font-size:120%;
 	box-sizing: border-box;
 }
 
+#check{
+	margin-left: 40%;
+}
+
+input[type="text"]{
+ width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  
+}
+
 .formId {
-font-size:110%;
-font-weight:bold;
 text-shadow: 1px 1px white ;
-font-family:calibri;
+font-family:sans-serif;
+border-radius: 1px 1px 1px 1px;
+width: 50%;
+	margin-left: 25%;
+
 }
 
 .input {
 padding: 0.5%;
+
+}
+
+
+#log{
+	display: block;
+  line-height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #555;
+  text-align: center;
+  text-shadow: 0 1px white;
+  background: lightgray;
+  border-radius: 6px 6px 3px 3px;
+  border-color: black;
+  border-width: 2px;
+  width: 353.5px;
 }
 
 .resultTable
@@ -122,12 +160,13 @@ color:darkblue;
 }
 
 .subbutton {
-background-color: black;
+background-color:#555;
 color:white;
 margin-top: .7%;
-padding:1%;
+padding:3%;
 font-family:Helvetica;
 border-radius:50%;
+cursor: pointer;
 }
 
 .mstructure {

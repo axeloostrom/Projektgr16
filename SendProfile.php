@@ -14,9 +14,9 @@ if ($connection -> connect_error)
 }
 //Displays "Connection failed" on site if Connection error. Otherwise it displays nothing.
 $_SESSION["merommig"];
-$_SESSION["UID"];
+$row["UID"];
 
-if(!isset($_SESSION["UID"]))
+if(!isset($row["UID"]))
 {
 	echo "fel";
 }
