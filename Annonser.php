@@ -3,7 +3,8 @@
 	$connection=dbconnect();
 	authorization(); //Checks whether the Session variable "hashed_password" has been set.
 	$siteid = $_GET['id'];
-	
+	$query = "SELECT * FROM Prgr16_Jobs WHERE JID=$siteid"; 
+    $result= $connection -> query ($query);
 ?> 
 <!--Selects all data from table "Comments in database.-->
 
@@ -51,6 +52,7 @@
                     center: {lat:59.8585638,lng:17.6389267}
                   }
 
+
                   var map = new google.maps.Map(document.getElementById('map'), options);
 
                   var marker = new google.maps.Marker({
@@ -88,6 +90,22 @@
 			echo $row['DESCRIPTION'];
 		 }
 		?>
+
+
+	</div>
+		<div class="annonsbar">
+				<?php
+					while ($row = $result -> fetch_assoc ())
+					{
+						echo "<h3 id='center'><span id='annonsjc'>".$row['JOB_CATEGORY']."</span></h3><br><br>";
+						echo "<span id='annonsrow'><strong>Var: </strong>".$row['ADRESS'].".</span><br><br>";
+						echo "<span id='annonsrow'><strong>Timersättning: </strong>".$row['WAGE']." kr/timme.</span><br><br>";
+						echo "<span id='annonsrow'><strong>Uppskattad tidsåtgång: </strong>".$row['EST_TIME']." minuter.</span><br><br>";
+						echo "<span id='annonsrow'><strong>Utförelsedatum: </strong>".$row['LFD'].".</span><br><br>";
+						echo "<span id='annonsrow'><strong>Beskrivning: </strong>''".$row['DESCRIPTION']."''</span><br><br>";
+					}
+				?>
+		</div>
 
 	</body>
 </html>
