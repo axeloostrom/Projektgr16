@@ -63,6 +63,7 @@ function insertToDB($connection,$row,$email,$realpassword,$merommig)
 		$_SESSION["hashed_password"] = $hashed_password;
 		$_SESSION["email"] =$email;
 		$_SESSION["UID"] = $UID;
+		$_SESSION["merommig"] = $mom;
 		//End of creating session variable of user-input
 	}
 	

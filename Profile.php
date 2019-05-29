@@ -1,4 +1,6 @@
 <?php
+
+session_start();
 $uname = "dbtrain_850";
 $pass = "rkdrha";
 $host = "dbtrain.im.uu.se";
@@ -29,14 +31,31 @@ $result = $connection -> query ($query)
 		</ul>
 		
 		<title>Profilepage</title>
-			
+		
 	</head>
 	<body>
 	
-	<a href="ChangeProfile.php"> Ändra din profil </a>
-	<h1 id="Big">My profile page</h1>
-			
 	
+	<label id="log">Min Profil</label>
+			
+		<div class="profilediv">
+			<?php
+			
+			$current_email = $_SESSION['email'];
+			$query = "SELECT * FROM Prgr16_User WHERE Email='$current_email'";
+
+			$result = $connection -> query($query);
+
+			while($row = $result->fetch_assoc())
+			{
+
+				echo "<span id='profiletext'><h3> Email:<br>" . $row['Email'] .  "</h3></span>";
+				echo "<span id='profiletext'><h3> Beskrivning:<br>" . $row['Merommig'] .  "</h3></span>";
+				echo "<a href='ChangeProfile.php'> Ändra din profil </a>";
+			}
+
+			?>
+		</div>
 	 
 	
 	</body>

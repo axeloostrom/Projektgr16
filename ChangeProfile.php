@@ -24,24 +24,22 @@ authorization(); //Checks whether the Session variable "hashed_password" has bee
 	 
 	 
 	 <form name = "myForm" method = "GET" action = "SendProfile.php" >
-	    
+	 <fieldset id="field">   
 
-	<label> Förnamn: <br> </label> <input type = "text" name = "forNamn"> <br>
-	<label> Efternamn: <br> </label> <input type = "text" name = "efterNamn"> <br>
-    <label> Email: <br> </label> <input type = "text" name = "mail"> <br>
-	<label> Mer om mig: <br> </label> <input type = "text" name = "merommig"> <br>
+
+    
+	<label> Mer om mig: <br> </label> <textarea id="texta" rows="10" cols="40" name = "merommig"></textarea> <br>
 	
 	
-	<br> <br> <input type = "submit" value = "Ändra" id = "ändraKnapp" class = "button">
-		</form>
-		
-
-		<br>
-		<br>
-		<br>
+	 <br> <input type = "submit" value = "Ändra" id = "ändraKnapp" class = "button">
+				<br>
 		<div class = "deleteprofile">
 		<form id = "form" name = "form1" method = "GET" action = "deleteprofile.php" onsubmit = "submit">
 		<input type = "submit" value = "Ta bort profil">
-         
+         </div>
+		
+		</form>
+		</fieldset>
+
 </body>
 </html>	

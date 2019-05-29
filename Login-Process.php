@@ -11,6 +11,7 @@
 		include 'Include/LoginValidation.php';
 		matchInputWithDB($connection,$row,$login_email,$login_password); //Sends four variables to this function on the LoginValidation-php page.
 		$_SESSION["email"] = $login_email;
+		$_SESSION["merommig"] = $login_mom;
 ?>
 <html>
 	<head>

@@ -14,18 +14,23 @@
 	<body onload='document.loginForm.login_usremail.focus()'>
 		<div class="bar">
 			<h2 id="topic">Välkommen tillbaka<br>till oss!</h2>
+			
 		</div>
-		
-		<h2>Skriv in dina användaruppgifter:</h2>
+		<div class="form">
+	
 		<form action="Login-Process.php" name="loginForm">
+			
 			<fieldset id="field">
+				<label id="log">Logga in</label>
 				<div class="formId">Email:</div>
-					<input class="input" type="text" name="login_usremail" required><br>
+					<input class="input" type="text" name="login_usremail" placeholder="E-Mail..." required><br>
 				<div class="formId">Password:</div>
-					<input class="formId" type "text" name="login_password" required><br>
-				<input class="subbutton"type="submit" value="Login" onclick="validateLoginEmail(document.loginForm.login_usremail)">
+					<input class="formId" type="text" name="login_password" placeholder="Lösenord..." required><br>
+			</br>	<input class="subbutton"type="submit" value="Login" onclick="validateLoginEmail(document.loginForm.login_usremail)">
+					<input type="checkbox" id="check"> Kom ihåg mig 
 			</fieldset>
 		</form>
+		</div>
 		<script src="assets\js\js.js"></script>
 	</body>
 </html>
