@@ -12,12 +12,8 @@
 		<link rel = "stylesheet" type = "text/css"  href = "assets\css\css3.css" />
 		<link rel='stylesheet' type='text/css' href="assets\css\style.php" />
 		<!--Links to the external php & css-sheets that are being used.-->
-		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
-   		integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-  	 crossorigin=""/>
-	    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
-   integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
-   crossorigin=""></script>
+
+
 		<ul class="mstructure">
 			<li class="mblock"><a class="active" href="Index.php">Topics</a></li>
 			<li class="mblock"><a href="Logout-process.php">Logout</a></li>
@@ -25,14 +21,9 @@
 		
 		<title>Uppsala Annonstorg</title>
 			<h1 id="Big">För ett mer integrerat Uppsala</h1>
+
 	</head>
-	<body>
-<div id="mapid">
-
-
-	</div>
-	<!--Allows the user to instantly write their name that they use when posting a comment-->
-		<div class="bar">
+			<div class="bar">
 			<h2 id="topic"> Här är den annons som du intresserade dig för.</h2>
 		</div>
 	 	<!--Start of Posting Form-->
@@ -47,6 +38,35 @@
 				<input class="subbutton"type="submit" onclick="validateIndexEmail(document.usrForm.usremail)"> <!--Submitbutton sending the email to a javascript function which validates it-->
 			</fieldset>
 		</form>
+	<body>
+              <div id="map"></div>
+              <script>
+                function initMap(){
+                  var options = {
+                    zoom: 12,
+                    center: {lat:59.8585638,lng:17.6389267}
+                  }
+
+                  var map = new google.maps.Map(document.getElementById('map'), options);
+
+                  var marker = new google.maps.Marker({
+                    position:{lat:59.859414,lng:17.619756},
+                    map:map
+                  });
+
+                  var infoWindow = new google.maps.InfoWindow({
+                    content: '<h4>Marleys Italian Cuisine</h4><p>Kyrkogårdsgatan 10</p><p>753 13 Uppsala</p>'
+                  });
+
+                  marker.addListener('click', function(){
+                    infoWindow.open(map, marker);
+                  });
+                }
+              </script>
+              <script
+			  async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9E22mdzuQsU5Lq4q_snJakE7envLT15A&callback=initMap">
+              </script>
+	<!--Allows the user to instantly write their name that they use when posting a comment-->
 		<script src="assets\js\js.js"></script>
 		<!--Links to eternal javascriptfile in order to seperate code.-->
 		<!--End of Posting Form-->

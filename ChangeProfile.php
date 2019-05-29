@@ -18,16 +18,13 @@ authorization(); //Checks whether the Session variable "hashed_password" has bee
 	<body>
 	
 	<a href="Profile.php"> Gå tillbaka </a>
-	
-	<h1> Ändra din profil </h1> <br>
 	 
 	 
 	 
 	 <form name = "myForm" method = "GET" action = "SendProfile.php" >
 	 <fieldset id="field">   
 
-
-    
+    <label id="log">Min Profil</label> </br>
 	<label> Mer om mig: <br> </label> <textarea id="texta" rows="10" cols="40" name = "merommig"></textarea> <br>
 	
 	

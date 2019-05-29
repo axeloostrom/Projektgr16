@@ -21,10 +21,10 @@
 		<form action="Login-Process.php" name="loginForm">
 			
 			<fieldset id="field">
-				<label id="log">Logga in</label>
-				<div class="formId">Email:</div>
+				<label id="log">Logga in</label> </br>
+				<div class="formId">E-Mail:</div>
 					<input class="input" type="text" name="login_usremail" placeholder="E-Mail..." required><br>
-				<div class="formId">Password:</div>
+				<div class="formId">Lösenord:</div>
 					<input class="formId" type="text" name="login_password" placeholder="Lösenord..." required><br>
 			</br>	<input class="subbutton"type="submit" value="Login" onclick="validateLoginEmail(document.loginForm.login_usremail)">
 					<input type="checkbox" id="check"> Kom ihåg mig 

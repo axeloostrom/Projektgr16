@@ -34,11 +34,10 @@ $result = $connection -> query ($query)
 		
 	</head>
 	<body>
-	
-	
-	<label id="log">Min Profil</label>
+
 			
 		<div class="profilediv">
+			<label id="log">Min Profil</label>
 			<?php
 			
 			$current_email = $_SESSION['email'];

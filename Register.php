@@ -12,24 +12,24 @@
 			<li class="mblock"><a class="active" href="Register.php">Register</a></li>
 		</ul>
 			<h1 id="Big">Uppsala Annonstorg</h1>
-			<h1>För en mer integrerad stad</h1>
+
 	</head>
 	<body onload='document.regForm.reg_usremail.focus()'>
 		<div class="bar">
 			<h2 id="topic"> Bli en Uppis: Registrera nedan</h2>
 		</div>
-		
-		<label id="log">Registrering</label>
 		<form action="Register-Process.php" name="regForm"> <!--When executed it refers to the php-document Register-Process-->
 			<fieldset id="field">
-				<div class="formId">Mail:</div>
-					<input class="input" type="text" name="reg_usremail" required><br>
+				<label id="log">Registrering</label> </br>
+				<div class="formId">E-Mail:</div>
+					<input class="input" type="text" name="reg_usremail" placeholder="E-Mail..." required><br>
 				<div class="formId">Lösenord:</div>
-					<input class="formId" type="text" name="reg_password" required><br>
+					<input class="formId" type="text" name="reg_password" placeholder="Lösenord..."required><br>
 				<div class="formId">Mer om Mig:</div>
-					<textarea class="formId" type="textarea" name="merommig" required></textarea>
-					<h4 class="reminder">Remember that the password and e-mail has to be 8 characters or longer!</h4>
+					<textarea id="texta" type="text" rows="10" cols="40" name="merommig" placeholder="Beskriv dig själv kortfattat..." required></textarea>
+
 				<input class="subbutton"type="submit" value="Create User" onclick="validateRegisterEmail(document.regForm.reg_usremail)">
+				<input type="checkbox" id="check"> Godkänn
 			</fieldset>
 		</form>
 		<script src="assets\js\js.js"></script>
