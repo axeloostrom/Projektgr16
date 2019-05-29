@@ -14,32 +14,26 @@ if ($connection -> connect_error)
 }
 //Displays "Connection failed" on site if Connection error. Otherwise it displays nothing.
 $_SESSION["merommig"];
-$row["UID"];
+$_SESSION["email"];
 
-if(!isset($row["UID"]))
+
+$ny_merommig = mysqli_real_escape_string ($connection, $_GET['merommig']);
+$ny_merommig_slutgiltig = "";
+
+if ($ny_merommig !="")
 {
-	echo "fel";
-}
-else{
-	echo "rätt";
-}
-
-$merommig = mysqli_real_escape_string ($connection, $_GET['merommig']);
-$ny_merommig = "";
-
-if ($merommig !="")
-{
-	$ny_merommig = $merommig;
+	$ny_merommig_slutgiltig = $ny_merommig;
 }
 else 
 {
-	echo "funka ej";
+	echo "Fälten kan inte vara tomma!";
 }
 
-$query = "UPDATE Prgr16_Profile SET Merommig='$ny_merommig' WHERE UID='" . $_SESSION['UID'] . "'";
+$query = "UPDATE Prgr16_User SET Merommig='$ny_merommig_slutgiltig ' WHERE Email='" . $_SESSION['email'] . "'";
 $connection -> query($query);
 
 
-//header ("Refresh: 2, URL = ChangeProfile.php");
+
+header ("Refresh: 2, URL = ChangeProfile.php");
 ?>
 
