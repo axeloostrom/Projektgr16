@@ -2,34 +2,29 @@
 include 'Include/DB.php';
     $connection = dbconnect();
 	authorization();
+$adress = trim(mysqli_real_escape_string($connection,$_POST['region']));
+$email = ($_SESSION["email"]);
+$est_time = trim(mysqli_real_escape_string($connection,$_POST['hours']));
+$job_category = trim(mysqli_real_escape_string($connection,$_POST['service']));
+$wage = trim(mysqli_real_escape_string($connection,$_POST['wage']));
+$description = trim(mysqli_real_escape_string($connection,$_POST['message']));
+$lfd = trim(mysqli_real_escape_string($connection,$_POST['date']));
 
-$adress = $connection -> real_escape_string($_POST['region']);
-$email = $connection -> real_escape_string($_POST['mail']);
-$est_time = $connection -> real_escape_string($_POST['hours']);
-$job_categpry = $connection -> real_escape_string($_POST['service']);
-$wage = $connection -> real_escape_string($_POST['wage']);
-$description = $connection -> real_escape_string($_POST['message']);
+if (trim($adress) == "" || trim($est_time) == "" || trim($job_category) == "" || trim($wage) == "" || trim($description) == "" || trim($lfd) == "" || trim($email) == "")
+{
+    echo "Felaktig inmatning, försök igen!";
+	header("Refresh: 5; URL=UploadService.php");
+}
+else
+{
+        $query = "INSERT INTO Prgr16_Jobs (EMAIL, JOB_CATEGORY, ADRESS, WAGE, EST_TIME, LFD, DESCRIPTION) 
+        VALUES ('".$email."', '".$job_category."', '".$adress."', '".$wage."', '".$est_time."','".$lfd."','".$description."')"; 
+        $connection -> query ($query);
+        header ("Refresh: 15; URL=SearchService.php");
+    
+}
 
 
-$query = "INSERT INTO Prgr16_Jobs (Email, Job_Category, Adress, Est_Time, Wage, Description) 
-        VALUES ('".$email."', '".$job_categpry."', '".$adress."', '".$wage."', '".$est_time."', '".$description."')"; 
 
-$connection -> query ($query);
-//
-$querygetAID ="SELECT * FROM Prgr16_Jobs (Email) WHERE AID; FORSTÄTT HÄR IMORGON. 
-        VALUES ('".$email."', '".$job_categpry."', '".$adress."', '".$wage."', '".$est_time."', '".$description."')"; ""
- $title ='Annonssida3.php';//Måste skapas av sessionsvariabel med namnet Session["AID"]. Ska ta det sista Session["AID"] och lägga till en.
-    echo "$title har skapats";
-    //the data
-    include 'Include/CreateNewPage.php';
-    $data = CreateNewPage();
 
-    //open the file and choose the mode
-
-    $fh = fopen($title, "a");
-    fwrite($fh, $data);
-
-    //close the file
-
-    fclose($fh);
 ?>

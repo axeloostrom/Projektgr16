@@ -4,13 +4,13 @@
 
 	$login_email = $connection -> real_escape_string($_GET ["login_usremail"]); //Fetches the input email that is used when user logs in and saves it in a variable
 	$login_password = $connection -> real_escape_string($_GET ["login_password"]); //Fetches the inputted user password and saves it in a variable.
-		$query = "SELECT * FROM User WHERE Email='$login_email'";
+		$query = "SELECT * FROM Prgr16_User WHERE Email='$login_email'";
 		$result = $connection -> query ($query);
 		//Start fetching database-values for later comparison
 		$row = $result->fetch_assoc();
 		include 'Include/LoginValidation.php';
 		matchInputWithDB($connection,$row,$login_email,$login_password); //Sends four variables to this function on the LoginValidation-php page.
-		$_SESSION["UID"] = $uid;
+		$_SESSION["email"] = $login_email;
 ?>
 <html>
 	<head>

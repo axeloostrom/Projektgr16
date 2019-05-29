@@ -48,7 +48,7 @@ function insertToDB($connection,$row,$email,$realpassword,$merommig)
 		//End of Hashfunction
 
 		//Start of inserting values into database
-		$query = "INSERT INTO Prgr16_User (Email, Password, Salt) VALUES ('".$email."','".$hashed_password."','".$salt."')";
+		$query = "INSERT INTO Prgr16_User (Email, Password, Salt,Merommig) VALUES ('".$email."','".$hashed_password."','".$salt."','".$merommig."')";
 		$connection -> query($query);
 		//
  		$querygetUID = "SELECT * FROM Prgr16_User  WHERE Email='$email'";
@@ -57,11 +57,6 @@ function insertToDB($connection,$row,$email,$realpassword,$merommig)
                     {
                         $_SESSION["UID"] =$row["UID"];
                     }
-
-		$_SESSION["merommig"] = $merommig;
-		$query2 = "INSERT INTO Prgr16_Profile (UID,Merommig) VALUES ('".$_SESSION["UID"]."','".$merommig."')";
-		
-		$connection -> query($query2);
 		//End of insert values into database
 		
 		//Start of creating session variable of user-input

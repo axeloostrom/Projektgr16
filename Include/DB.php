@@ -1,10 +1,5 @@
 <?php
 session_start();
-function session()
-{
-// Start the session
-session_start();
-}
 
 function authorization() 
 {

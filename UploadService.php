@@ -44,12 +44,12 @@ include 'Include/DB.php';
                 <option value="Centrum" id="C" name="C">Centrum</option>
                 <option value="To Be Continued" id="tb" name="tb">To be continued</option>
             </select> </br>
-             </br> Ange din E-mail: </br>
-             <input type="text" name="mail" id="mail">
              </br> Ange antal arbetstimmar: </br>
              <input type="text" name="hours" id="hours">
              </br> Ange timlön: </br>
              <input type="text" name="wage" id="wage"> </br>
+             </br> Ange datum ni senast vill ha jobbet utfört: </br>
+             <input type="date" name="date" id="date">
              </br> Beskriv tjänsten kortfattat: </br>
              <textarea input type="text" id="message" name="message" rows="10" cols="50"></textarea>
 
