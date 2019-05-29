@@ -82,14 +82,15 @@ include 'Include/DB.php';
             $service = $_POST['service'];
             $region = $_POST['region'];
             $date = $_POST['date'];
-                if ($date="mm/dd/yyyy"))
+                
+                if ($date == null)
                 {
                 $query1 = "SELECT * FROM Prgr16_Jobs  WHERE ADRESS='$region' AND JOB_CATEGORY='$service'";
                 $result = $connection -> query($query1);
                 }
                 else 
                 {
-                $query2 = "SELECT * FROM Prgr16_Jobs  WHERE ADRESS='$region' AND JOB_CATEGORY='$service'AND LFD='$date';
+                $query2 = "SELECT * FROM Prgr16_Jobs  WHERE ADRESS='$region' AND JOB_CATEGORY='$service' AND LFD='$date'";
                 $result = $connection -> query($query2);
                 }
             ?>
@@ -117,9 +118,8 @@ include 'Include/DB.php';
                             }
                             ?>*/
                     }
+                    echo $date;
                 ?>
-            </div>
-            <div class="bilder">
             </div>
         </div>
         </body>
