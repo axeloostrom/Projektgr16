@@ -1,6 +1,9 @@
 <?php
 	include 'Include/DB.php';
+	$connection=dbconnect();
 	authorization(); //Checks whether the Session variable "hashed_password" has been set.
+	$siteid = $_GET['id'];
+	
 ?> 
 <!--Selects all data from table "Comments in database.-->
 
@@ -25,20 +28,18 @@
 		<div class="bar">
 			<h2 id="topic"> Här är den annons som du intresserade dig för.</h2>
 		</div>
-	 	<!--Start of Posting Form-->
-		<form action="Posts-Create.php" name="usrForm">
-			<fieldset id="field">
-				<div class="formId">Name:</div>
-					<input class="input" type="text" name="usrname" required><br> <!--First inputfield allowing user to enter the name which is linked to the comment-->
-				<div class="formId">Email:</div>
-					<input class="input" type="text" name="usremail" required><br><br> <!--Second inputfield allowing user to enter the email which is linked to the comment but not displayed-->
-				<div class="formId">Comment:</div>
-					<input id="commentbox" type "text" name="comment" required><br> <!--Third inputfield allowing user to write the actual comment-->
-				<input class="subbutton"type="submit" onclick="validateIndexEmail(document.usrForm.usremail)"> <!--Submitbutton sending the email to a javascript function which validates it-->
-			</fieldset>
-		</form>
-		<script src="assets\js\js.js"></script>
-		<!--Links to eternal javascriptfile in order to seperate code.-->
-		<!--End of Posting Form-->
+		<?php
+		$query = "SELECT * FROM Prgr16_Jobs WHERE JID=$siteid"; 
+        $result= $connection -> query ($query);
+		 while ($row = $result -> fetch_assoc ())
+		 {
+			echo $row['JOB_CATEGORY'];
+			echo $row['ADRESS'];
+			echo $row['WAGE'];
+			echo $row['EST_TIME'];
+			echo $row['LFD'];
+			echo $row['DESCRIPTION'];
+		 }
+		?>
 	</body>
 </html>
