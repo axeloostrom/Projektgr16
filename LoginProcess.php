@@ -59,6 +59,7 @@ session_start();
 			$_SESSION["hashed_password"] = $hashed_password;
 			$_SESSION["salt"] = $db_salt;
 			$_SESSION["db_password"] = $db_password;
+			$_SESSION["merommig"] = $merommig;
 			//End of creating session variables of user-input
 			
 			if ($_SESSION["hashed_password"] != $_SESSION["db_password"]) 
