@@ -25,8 +25,8 @@
 				<div class="formId">E-Mail:</div>
 					<input class="input" type="text" name="login_usremail" placeholder="E-Mail..." required><br>
 				<div class="formId">Lösenord:</div>
-					<input type="password" type="text" name="login_password" placeholder="Lösenord..." required><br>
-			</br>	<input class="subbutton"type="submit" value="Login" onclick="validateLoginEmail(document.loginForm.login_usremail)">
+					<input class="input" type="password" type="text" name="login_password" placeholder="Lösenord..." required><br>
+				<input class="subbutton"type="submit" value="Login" onclick="validateLoginEmail(document.loginForm.login_usremail)">
 					<input type="checkbox" id="check"> Kom ihåg mig 
 			</fieldset>
 		</form>
