@@ -14,16 +14,15 @@
 		<div class="bar">
 			<h2 id="topic">Välkommen tillbaka<br>till oss!</h2>
 		</div>
-		<h2>Skriv in dina användaruppgifter:</h2>
 		<form action="Login-Process.php" name="loginForm">
 			<fieldset id="field">
-			<h1 id="ogiltigt">Ogiltiga Användaruppgifter. Är du säker på att du är medlem?</h1>
-				<div class="formId">Email:</div>
-					<input class="input" type="text" name="login_usremail" required><br>
-				<div class="formId">Password:</div>
-					<input class="formId" type "text" name="login_password" required><br>
-					<h4 class="reminder">Remember that the password and e-mail has to be 8 characters or longer!</h4>
+				<label id="log">Logga in</label> </br>
+				<div class="formId">E-Mail:</div>
+					<input class="input" type="text" name="login_usremail" placeholder="E-Mail..." required><br>
+				<div class="formId">Lösenord:</div>
+					<input class="input" type="password" name="login_password" placeholder="Lösenord..." required><br>
 				<input class="subbutton"type="submit" value="Login" onclick="validateLoginEmail(document.loginForm.login_usremail)">
+					<input type="checkbox" id="check"> Kom ihåg mig 
 			</fieldset>
 		</form>
 		<script src="assets\js\js.js"></script>

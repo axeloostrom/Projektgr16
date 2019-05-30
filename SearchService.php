@@ -47,6 +47,7 @@ include 'Include/DB.php';
 		</div>
         <div class="searchservice">
              <form name="frm1" id="frm1" action="SearchService.php" method="post">
+                </br> Jobbtyp: </br>
                 <select id="service" name="service"> 
                     <option value="Barnvakt" id="Barnvakt" name="Barnvakt" selected="selected">Barnvakt</option>
                     <option value="Hundvakt" id="Hundvakt" name="Hundvakt">Hundvakt</option>
