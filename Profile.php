@@ -26,8 +26,9 @@ $result = $connection -> query ($query)
 		<link rel='stylesheet' type='text/css' href="assets\css\style.php" />
 		<!--Links to the external php & css-sheets that are being used.-->
 		<ul class="mstructure">
-			
-			<li class="mblock"><a href="#news">Logout</a></li>
+            <li class="mblock3"><a href="SearchService.php">Sök annons</a></li>
+        	<li class="mblock3"><a class="active" href="Profile.php">Min Profil</a></li>
+			<li class="mblock3"><a href="Logout-process.php">Logout</a></li>
 		</ul>
 		
 		<title>Profilepage</title>

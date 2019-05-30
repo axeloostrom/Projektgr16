@@ -19,8 +19,9 @@
 
 
 		<ul class="mstructure">
-			<li class="mblock"><a class="active" href="Index.php">Topics</a></li>
-			<li class="mblock"><a href="Logout-process.php">Logout</a></li>
+			<li class="mblock3"><a class="active" href="SearchService.php">Sök annons</a></li>
+			<li class="mblock3"><a href="UploadService.php">Ladda upp annons</a></li>
+			<li class="mblock3"><a href="Logout-process.php">Logout</a></li>
 		</ul>
 		
 		<title>Uppsala Annonstorg</title>
