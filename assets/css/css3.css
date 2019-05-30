@@ -90,9 +90,6 @@ input[type="text"]{
   box-sizing: border-box;
 }
 
-
-
-
 .input {
 padding: 0.5%;
 
@@ -268,19 +265,6 @@ h3
   position: relative;
 }
 
-#map
-{
-  background-color: grey;
-  min-height:400px;
-  margin-right:0px;
-  width:44%;
-  padding:3%;
-  margin-top:2%;
-  border-radius:5%;
-  margin-left:25%;
-
-}
-
 .annonsdiv 
 {
   background-color:grey;
@@ -334,4 +318,15 @@ h3
   margin-right:35%;
   width:30%;
   border-radius:10%;
+}
+
+#map
+{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 44%;
+  margin-left: 5%;
 }
