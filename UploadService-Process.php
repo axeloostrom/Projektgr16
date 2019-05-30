@@ -20,7 +20,7 @@ else
         $query = "INSERT INTO Prgr16_Jobs (EMAIL, JOB_CATEGORY, ADRESS, WAGE, EST_TIME, LFD, DESCRIPTION) 
         VALUES ('".$email."', '".$job_category."', '".$adress."', '".$wage."', '".$est_time."','".$lfd."','".$description."')"; 
         $connection -> query ($query);
-        header ("Refresh: 15; URL=SearchService.php");
+        header ("Refresh: 0.2; URL=SearchService.php");
     
 }
 

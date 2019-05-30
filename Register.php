@@ -18,18 +18,24 @@
 		<div class="bar">
 			<h2 id="topic"> Bli en Uppis: Registrera nedan</h2>
 		</div>
-		<form action="Register-Process.php" name="regForm"> <!--When executed it refers to the php-document Register-Process-->
+		<form action="Register-Process.php" name="regForm" method="post"> <!--When executed it refers to the php-document Register-Process-->
 			<fieldset id="field">
 				<label id="log">Registrering</label> </br>
 				<div class="formId">E-Mail:</div>
 					<input class="input" type="text" name="reg_usremail" placeholder="E-Mail..." required><br>
-				<div class="formId">Lösenord:</div>
+				 <div class="formId">Kundtyp:</div>
+				<select id="kundtyp" name="kundtyp">
+					<option value="VKT" id="vkt" name="vkt">Välj kundtyp...</option>
+					<option value="Annonsskapare" id="annonsör" name="annonsör">Annonsskapare</option>
+					<option value="Jobbsökande" id="jobbsökande" name="jobbsökande">Jobbsökande</option>
+           		</select> </br>
+				   <div class="formId">Lösenord:</div>
 					<input type="password" type="text" name="reg_password" placeholder="Lösenord..."required><br>
 				<div class="formId">Mer om Mig:</div>
 					<textarea id="texta" type="text" rows="10" cols="40" name="merommig" placeholder="Beskriv dig själv kortfattat..." required></textarea>
 
 				<input class="subbutton"type="submit" value="Create User" onclick="validateRegisterEmail(document.regForm.reg_usremail)">
-				<input type="checkbox" id="check"> Godkänn
+				<input type="checkbox" id="check"> Godkänn användarvillkor.
 			</fieldset>
 		</form>
 		<script src="assets\js\js.js"></script>

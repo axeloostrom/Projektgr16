@@ -1,9 +1,10 @@
 <?php
 	include 'Include/DB.php';
 	$connection = dbconnect();
-	$emailpre = $connection -> real_escape_string($_GET ["reg_usremail"]); //Fetches the input email that is used when posting a comment and saves it in a variable
-	$realpasswordpre = $connection -> real_escape_string($_GET ["reg_password"]); //Fetches the inputted comment and saves it in a variable
-	$merommigpre = $connection -> real_escape_string($_GET ["merommig"]);
+	$emailpre = $connection -> real_escape_string($_POST ["reg_usremail"]); //Fetches the input email that is used when posting a comment and saves it in a variable
+	$realpasswordpre = $connection -> real_escape_string($_POST ["reg_password"]); //Fetches the inputted comment and saves it in a variable
+	$merommigpre = $connection -> real_escape_string($_POST ["merommig"]);
+	$kundtyp = $connection -> real_escape_string($_POST ["kundtyp"]);
 	
 	//Start of Server validation
 	include 'Include/ServerValidationRegister.php';
@@ -17,7 +18,7 @@
 	$row = $result->fetch_assoc();
 	$_SESSION["email"] = $email;
 	
-	insertToDB($connection,$row,$email,$realpassword,$merommig); //Insert to db if no rows are returned.
+	insertToDB($connection,$row,$email,$realpassword,$merommig,$kundtyp); //Insert to db if no rows are returned.
 	
 ?>		
 <html>
@@ -40,5 +41,5 @@
 	</body>
 </html>
 <?php	
-header("Refresh: 10; URL=SearchService.php");
+header("Refresh: 3; URL=SearchService.php");
 ?>

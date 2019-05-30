@@ -31,9 +31,21 @@ include 'Include/DB.php';
 		<link rel='stylesheet' type='text/css' href="assets\css\style.php" />
 		<!--Links to the external php & css-sheets that are being used.-->
 		<ul class="mstructure">
-            <li class="mblock3"><a class="active" href="SearchService.php">Sök annons</a></li>
-        	<li class="mblock3"><a href="Profile.php">Min Profil</a></li>
-			<li class="mblock3"><a href="Logout-process.php">Logout</a></li>
+            <?php
+                $email = $_SESSION["Email"];
+                $query = "SELECT * FROM Prgr16_User WHERE Email='$email' AND UTYPE='Annonsskapare'"; //Select all users in db that has same email as variable "@email".
+	            $result = $connection -> query ($query);
+	            $row = $result->fetch_assoc();
+                    if (!$row)
+                    {
+                        echo $row["UTYPE"];
+                        echo "<li class='mblock4'><a href='UploadService.php'>Ladda upp annons</a></li>";
+                        echo $_SESSION[Email];
+                    }
+            ?>
+            <li class="mblock4"><a class="active" href="SearchService.php">Sök annons</a></li>
+        	<li class="mblock4"><a href="Profile.php">Min Profil</a></li>
+			<li class="mblock4"><a href="Logout-process.php">Logout</a></li>
 		</ul>
 		
 		<title>Uppsala Annonstorg</title>

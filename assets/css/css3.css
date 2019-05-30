@@ -41,6 +41,13 @@ h1 {
 	text-align:center;
 }
 
+h4 
+{
+	margin-bottom:1%;
+	font-family:Verdana;
+	font-style:italic;
+}
+
 .reminder 
 {
 	font-family:Garamond;
@@ -333,11 +340,22 @@ h3
 
 #map
 {
-  position: absolute;
-  top: 0;
+  position:absolute;
+  top: 600px;
   bottom: 0;
-  left: 0;
-  right: 0;
-  width: 44%;
-  margin-left: 5%;
+  left:400;
+  right: 400;
+  width: 40%;
+  margin-left: 20%;
+}
+
+.uploadservice
+{
+  background:lightcoral;
+  opacity:0.9;
+  padding:4%;
+  margin-left:35%;
+  margin-right:35%;
+  width:30%;
+  border-radius:10%;
 }

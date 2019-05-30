@@ -29,7 +29,7 @@ function test_input($data)
 	  }
 	}
 	
-function insertToDB($connection,$row,$email,$realpassword,$merommig)
+function insertToDB($connection,$row,$email,$realpassword,$merommig,$kundtyp)
 {
 	if ( ! $row) //If it doesn´t return any rows it means that the email doesnt exist and should therefore be allowed to insert.
 	{
@@ -47,7 +47,7 @@ function insertToDB($connection,$row,$email,$realpassword,$merommig)
 		//End of Hashfunction
 
 		//Start of inserting values into database
-		$query = "INSERT INTO Prgr16_User (Email, Password, Salt,Merommig) VALUES ('".$email."','".$hashed_password."','".$salt."','".$merommig."')";
+		$query = "INSERT INTO Prgr16_User (Email, Password, Salt,Merommig,UTYPE) VALUES ('".$email."','".$hashed_password."','".$salt."','".$merommig."','".$kundtyp."')";
 		$connection -> query($query);
 
 		//End of insert values into database

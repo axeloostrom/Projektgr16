@@ -19,9 +19,8 @@
 		
 		<!--Links to the external php & css-sheets that are being used.-->
 		<ul class="mstructure">
-			<li class="mblock3"><a class="active" href="SearchService.php">Sök annons</a></li>
-			<li class="mblock3"><a href="UploadService.php">Ladda upp annons</a></li>
-			<li class="mblock3"><a href="Logout-process.php">Logout</a></li>
+			<li class="mblock"><a class="active" href="SearchService.php">Sök annons</a></li>
+			<li class="mblock"><a href="Logout-process.php">Logout</a></li>
 		</ul>
 		<title>Uppsala Annonstorg</title>
 			<h1 id="Big">För ett mer integrerat Uppsala</h1>
@@ -45,8 +44,7 @@
 				?>
 			</div>
 		</section>
-			<div id="map"></div>
-		
+			<div id="map">
 			<script>
 				var map = L.map('map').setView([59.8585, 17.646], 13); 
 
@@ -55,6 +53,7 @@
 				}).addTo(map);
 				var marker = L.marker([59.8585, 17.646]).addTo(map);
 			</script>
+			</div>
 		
 
 	<!--Start of Posting Form-->
