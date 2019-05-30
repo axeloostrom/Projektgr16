@@ -39,14 +39,14 @@ include 'Include/DB.php';
 		<title>Uppsala Annonstorg</title>
 			<h1 id="Big">Uppsala Annonstorg</h1>
 	</head>
-	<body>
+	<body > <!--onload="document.frm1.submit()"-->
 
 	<!--Allows the user to instantly write their name that they use when posting a comment-->
 		<div class="bar">
 			<h2 id="topic">Lediga Jobb</h2>
 		</div>
         <div class="searchservice">
-             <form action="SearchService.php" method="post">
+             <form name="frm1" id="frm1" action="SearchService.php" method="post">
                 <select id="service" name="service"> 
                     <option value="Barnvakt" id="Barnvakt" name="Barnvakt" selected="selected">Barnvakt</option>
                     <option value="Hundvakt" id="Hundvakt" name="Hundvakt">Hundvakt</option>
