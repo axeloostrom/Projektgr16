@@ -1,5 +1,4 @@
 <?php
-
 	include 'Include/DB.php';
 	$connection = dbconnect();
 	$emailpre = $connection -> real_escape_string($_GET ["reg_usremail"]); //Fetches the input email that is used when posting a comment and saves it in a variable
@@ -17,7 +16,6 @@
 	$result = $connection -> query ($query);
 	$row = $result->fetch_assoc();
 	$_SESSION["email"] = $email;
-	$_SESSION["merommig"] = $mom;
 	
 	insertToDB($connection,$row,$email,$realpassword,$merommig); //Insert to db if no rows are returned.
 	
@@ -38,11 +36,9 @@
 		<div class="bar">
 			<h2 id="topic">Vi försöker nu skapa ditt användarkonto...</h2>
 		</div>
-		
-		<h2>Your account has succesfully created. Thank you!</h2>
-		<h3>You will be redirected to the commentpage in 5 seconds...</h3>
+		<h3>Du kommer bli omdirigerad till annonssidan inom 3 sekunder...</h3>
 	</body>
 </html>
 <?php	
-header("Refresh: 5; URL=SearchService.php");
+header("Refresh: 10; URL=SearchService.php");
 ?>

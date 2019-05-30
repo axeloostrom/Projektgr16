@@ -2,7 +2,7 @@
 
 
 //Måste göra så att det krävs att man är inloggad för att söka upp tjänst
-
+error_reporting(0);
 $uname = "dbtrain_850";
 $pass = "rkdrha";
 $host = "dbtrain.im.uu.se";
@@ -47,6 +47,7 @@ include 'Include/DB.php';
 		</div>
         <div class="searchservice">
              <form name="frm1" id="frm1" action="SearchService.php" method="post">
+                </br> Jobbtyp: </br>
                 <select id="service" name="service"> 
                     <option value="Barnvakt" id="Barnvakt" name="Barnvakt" selected="selected">Barnvakt</option>
                     <option value="Hundvakt" id="Hundvakt" name="Hundvakt">Hundvakt</option>
@@ -95,19 +96,18 @@ include 'Include/DB.php';
 
         <div class="resultTable">
             <div class="text">
-                <?php		
-                    while ($row = $result -> fetch_assoc ())
-                    {
-                        $_SESSION["JID"] =$row["JID"];
-                        echo $_SESSION["JID"];
-                        echo "<span id='Adress'>Adress: <a href='Annonser.php?id=".$row['JID']."'>".$row["ADRESS"]."</a></span><br>";
-                        echo "<span id='Adress'>Email: ".$row["EMAIL"]."</span><br>";
-                        echo "<span id='Adress'>Jobkategori: ".$row["JOB_CATEGORY"].".</span><br>";
-                        echo "<span id='Adress'>Lön: ".$row["WAGE"]." kr/timme.</span><br>";
-                        echo "<span id='Adress'>Uppskattad arbetstid: ".$row["EST_TIME"]." timmar.</span><br><br>";
-                        echo "<span id='Avskiljare'>***</span><br><br><br><br>";
-                    }
-                    echo $date;
+                <?php	
+                while ($row = $result -> fetch_assoc ())
+                            {
+                                
+                                echo "<span id='Adress'>Adress: <a href='Annonser.php?id=".$row['JID']."'>".$row["ADRESS"]."</a></span><br>";
+                                echo "<span id='Adress'>Email: ".$row["EMAIL"]."</span><br>";
+                                echo "<span id='Adress'>Jobkategori: ".$row["JOB_CATEGORY"].".</span><br>";
+                                echo "<span id='Adress'>Lön: ".$row["WAGE"]." kr/timme.</span><br>";
+                                echo "<span id='Adress'>Uppskattad arbetstid: ".$row["EST_TIME"]." timmar.</span><br><br>";
+                                echo "<span id='Avskiljare'>***</span><br><br><br><br>";
+                            }
+                    
                 ?>
             </div>
         </div>

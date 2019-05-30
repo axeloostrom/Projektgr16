@@ -29,7 +29,6 @@ function test_input($data)
 	  }
 	}
 	
-	session_start();
 function insertToDB($connection,$row,$email,$realpassword,$merommig)
 {
 	if ( ! $row) //If it doesn´t return any rows it means that the email doesnt exist and should therefore be allowed to insert.
@@ -50,20 +49,12 @@ function insertToDB($connection,$row,$email,$realpassword,$merommig)
 		//Start of inserting values into database
 		$query = "INSERT INTO Prgr16_User (Email, Password, Salt,Merommig) VALUES ('".$email."','".$hashed_password."','".$salt."','".$merommig."')";
 		$connection -> query($query);
-		//
- 		$querygetUID = "SELECT * FROM Prgr16_User  WHERE Email='$email'";
-        $resultquerygetid = $connection -> query($querygetUID);		
-        while ($row = $resultquerygetid -> fetch_assoc ())
-                    {
-                        $_SESSION["UID"] =$row["UID"];
-                    }
+
 		//End of insert values into database
 		
 		//Start of creating session variable of user-input
 		$_SESSION["hashed_password"] = $hashed_password;
 		$_SESSION["email"] =$email;
-		$_SESSION["UID"] = $UID;
-		$_SESSION["merommig"] = $mom;
 		//End of creating session variable of user-input
 	}
 	

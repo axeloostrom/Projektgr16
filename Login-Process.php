@@ -11,7 +11,6 @@
 		include 'Include/LoginValidation.php';
 		matchInputWithDB($connection,$row,$login_email,$login_password); //Sends four variables to this function on the LoginValidation-php page.
 		$_SESSION["email"] = $login_email;
-		$_SESSION["merommig"] = $login_mom;
 ?>
 <html>
 	<head>
@@ -21,13 +20,13 @@
 		<style>
 		
 		</style>
-		<title>Big Talk</title>
-			<h1 id="Big">BIG TALK</h1>
-			<h1>The forum where hard topics are discussed constructively</h1>
+		<title>Uppsala Annonstorg</title>
+			<h1 id="Big">Uppsala Annonstorg</h1>
+			<h1>Du är snart där och kan söka bland alla möjliga annonser!</h1>
 	</head>
 	<body onload='document.regForm.reg_usrname.focus()'>
 		<div class="bar">
-			<h2 id="topic">Trying to log in...</h2>
+			<h2 id="topic">Försöker logga in...</h2>
 		</div>
 		<?php	
 			header("Refresh: 3; URL=SearchService.php");
