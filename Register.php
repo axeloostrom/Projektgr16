@@ -24,7 +24,7 @@
 				<div class="formId">E-Mail:</div>
 					<input class="input" type="text" name="reg_usremail" placeholder="E-Mail..." required><br>
 				<div class="formId">Lösenord:</div>
-					<input class="formId" type="text" name="reg_password" placeholder="Lösenord..."required><br>
+					<input type="password" type="text" name="reg_password" placeholder="Lösenord..."required><br>
 				<div class="formId">Mer om Mig:</div>
 					<textarea id="texta" type="text" rows="10" cols="40" name="merommig" placeholder="Beskriv dig själv kortfattat..." required></textarea>
 
