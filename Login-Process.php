@@ -1,0 +1,36 @@
+<?php
+	include 'Include/DB.php';
+	$connection = dbconnect(); 
+
+	$login_email = $connection -> real_escape_string($_GET ["login_usremail"]); //Fetches the input email that is used when user logs in and saves it in a variable
+	$login_password = $connection -> real_escape_string($_GET ["login_password"]); //Fetches the inputted user password and saves it in a variable.
+		$query = "SELECT * FROM Prgr16_User WHERE Email='$login_email'";
+		$result = $connection -> query ($query);
+		//Start fetching database-values for later comparison
+		$row = $result->fetch_assoc();
+		include 'Include/LoginValidation.php';
+		matchInputWithDB($connection,$row,$login_email,$login_password); //Sends four variables to this function on the LoginValidation-php page.
+		$_SESSION["email"] = $login_email;
+		$_SESSION["merommig"] = $login_mom;
+?>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<link rel = "stylesheet" type = "text/css"  href = "assets\css\css3.css" />
+		<link rel='stylesheet' type='text/css' href="assets\css\style.php" />
+		<style>
+		
+		</style>
+		<title>Big Talk</title>
+			<h1 id="Big">BIG TALK</h1>
+			<h1>The forum where hard topics are discussed constructively</h1>
+	</head>
+	<body onload='document.regForm.reg_usrname.focus()'>
+		<div class="bar">
+			<h2 id="topic">Trying to log in...</h2>
+		</div>
+		<?php	
+			header("Refresh: 3; URL=SearchService.php");
+		?>
+	</body>
+</html>
