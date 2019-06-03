@@ -86,13 +86,15 @@
 			</script>
 			</fieldset>
 	<!--Start of Posting Form-->
+	
 		<div id="contactForm">
 			<form action="mailto:<?php echo $annonsskaparensMail;?>" method="post" enctype="text/plain">
 				<fieldset id="fieldcontact">
+				<label id="log">Skicka meddelande till Annonsör</label> </br>
 					<div >Name:</div>
 						<input class="input" type="text" name="contactname" required><br> <!--First inputfield allowing user to enter the name which is linked to the comment-->
 					<div>Comment:</div>
-						<input id="commentbox" type "text" name="message" required><br> <!--Third inputfield allowing user to write the actual comment-->
+						<textarea id="texta" type="text" rows="10" cols="40"  required></textarea></br> 
 					<input class="subbutton"type="submit" value="Skicka meddelande till Annonsör" onclick=" validateIndexComment(document.contactForm.message)"> <!--Submitbutton sending the email to a javascript function which validates it-->
 				</fieldset>
 			</form>
