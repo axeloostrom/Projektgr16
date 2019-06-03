@@ -13,6 +13,7 @@ if (trim($name) == "" || trim($message) == "" || trim($email) == "")
 }
 else
 {
+        
         $query = "INSERT INTO Prgr16_Jobs (EMAIL, JOB_CATEGORY, ADRESS, WAGE, EST_TIME, LFD, DESCRIPTION) 
         VALUES ('".$email."', '".$job_category."', '".$adress."', '".$wage."', '".$est_time."','".$lfd."','".$description."')"; 
         $connection -> query ($query);
