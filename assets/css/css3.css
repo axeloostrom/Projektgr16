@@ -335,12 +335,19 @@ h3
 }
 #annonsbar 
 {
+  position: absolute;
+  top: 33%;
+  bottom: 36%;
+  left: 0%;
+  right: 0;
+  width: 46%;
   background-color:grey;
-  width:44%;
-  margin-left:25%;
   opacity:0.96;
   border-radius:5%;
-  padding:3%;
+  padding:2%;
+  font-size:90%;
+  overflow: hidden;
+  
 }
 
 #center
@@ -365,14 +372,12 @@ h3
 
 #map
 {
-  
-  position:relative;
-  top: 500px;
-  bottom: 50;
-  left:400;
-  right: 400;
-  width: 40%;
-  margin-left: 20%;
+  position: absolute;
+  top: 33%;
+  bottom: 36%;
+  left: 50%;
+  right: 0;
+  width: 50%;
   
 }
 
@@ -385,4 +390,25 @@ h3
   margin-right:35%;
   width:30%;
   border-radius:10%;
+}
+
+#contactForm 
+{
+  position: absolute;
+  top: 65%;
+  bottom: 36%;
+  left: 0%;
+  right: 0;
+  width: 100%;
+}
+
+#fieldcontact {
+ margin: 5% auto;
+  width: 50%;
+  padding: 2%;
+  background-color: #f3f3f3;
+  border-radius: 3px 3px 3px 3px;
+  border-color: white;
+  color: #555;
+  position: relative;
 }

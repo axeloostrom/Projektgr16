@@ -49,13 +49,11 @@
 						$coordinatesRow = $coordinatesResult -> fetch_assoc ();
 						$latitude = $coordinatesRow["LATI"];
 						$longitude = $coordinatesRow["LONGI"];
-						echo $longitude;
 
 					}
 				?>
 			</div>
-		</section>
-		<section>
+		
 			<fieldset id="map">
 			<script>
 				var map = L.map('map').setView([<?php echo $latitude; ?>,<?php echo $longitude; ?>], 13); 
@@ -65,11 +63,24 @@
 				}).addTo(map);
 				var marker = L.marker([<?php echo $latitude; ?>,<?php echo $longitude; ?>]).addTo(map);
 			</script>
-			<section>
 			</fieldset>
-		
-
 	<!--Start of Posting Form-->
+<<<<<<< HEAD
+		<div id="contactForm">
+			<form action="Posts-Create.php" name="usrForm">
+				<fieldset id="fieldcontact">
+					<div >Name:</div>
+						<input class="input" type="text" name="usrname" required><br> <!--First inputfield allowing user to enter the name which is linked to the comment-->
+					<div>Email:</div>
+						<input class="input" type="text" name="usremail" required><br><br> <!--Second inputfield allowing user to enter the email which is linked to the comment but not displayed-->
+					<div>Comment:</div>
+						<input id="commentbox" type "text" name="comment" required><br> <!--Third inputfield allowing user to write the actual comment-->
+					<input class="subbutton"type="submit" onclick="validateIndexEmail(document.usrForm.usremail)"> <!--Submitbutton sending the email to a javascript function which validates it-->
+				</fieldset>
+			</form>
+		</div>
+		</section>
+=======
 		<form action="Posts-Create.php" name="usrForm">
 			<fieldset id="field">
 				<div class="formId">Name:</div>
@@ -80,5 +91,6 @@
 				<input class="subbutton"type="submit" onclick="validateIndexEmail(document.usrForm.usremail)"> <!--Submitbutton sending the email to a javascript function which validates it-->
 			</fieldset>
 		</form>
+>>>>>>> 1a4d1bde642e6bfaf3164837b6c96289f6d150de
 	</body>
 </html>
