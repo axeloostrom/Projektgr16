@@ -35,9 +35,9 @@
 			<h1>För ett mer integrerat Uppsala</h1>
 	</head>
 	<body>
-		<div class="bar">
-			<h2 id="topic">Vi försöker nu skapa ditt användarkonto...</h2>
-		</div>
+		
+			<h2 id="snygg">Vi försöker nu skapa ditt användarkonto...</h2>
+		
 		<h3>Du kommer bli omdirigerad till annonssidan inom 3 sekunder...</h3>
 	</body>
 </html>

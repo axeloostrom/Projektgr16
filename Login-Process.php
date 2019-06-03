@@ -25,9 +25,7 @@
 			<h1 id="Big">Uppsala Annonstorg</h1>
 	</head>
 	<body onload='document.regForm.reg_usrname.focus()'>
-		<div class="bar">
-			<h2>Du blir nu omdirigerad...</h2>
-		</div>
+			<h2 id="snygg">Du blir nu omdirigerad...</h2>
 		<?php	
 	$email = $_SESSION["email"];
     $query = "SELECT UTYPE FROM Prgr16_User WHERE Email='$email'"; //Select all users in db that has same email as variable "@email".
