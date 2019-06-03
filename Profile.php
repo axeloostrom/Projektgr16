@@ -71,7 +71,8 @@ $result = $connection -> query ($query)
 
 				echo "<span id='profiletext'><h3> Email:<br>" . $row['Email'] .  "</h3></span>";
 				echo "<span id='profiletext'><h3> Beskrivning:<br>" . $row['Merommig'] .  "</h3></span>";
-				echo "<a href='ChangeProfile.php'> Ändra din profil </a>";
+				echo "<a href='ChangeProfile.php'> Ändra din profil</a><br><br>";
+				echo "<a href='ChangeAnnons.php'> Radera upplagd annons</a>";
 			}
 
 			?>
