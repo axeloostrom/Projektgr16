@@ -32,20 +32,26 @@ include 'Include/DB.php';
 		<!--Links to the external php & css-sheets that are being used.-->
 		<ul class="mstructure">
             <?php
-                $email = $_SESSION["Email"];
-                $query = "SELECT * FROM Prgr16_User WHERE Email='$email' AND UTYPE='Annonsskapare'"; //Select all users in db that has same email as variable "@email".
+
+                $email = $_SESSION["email"];
+                $query = "SELECT UTYPE FROM Prgr16_User WHERE Email='$email'"; //Select all users in db that has same email as variable "@email".
 	            $result = $connection -> query ($query);
 	            $row = $result->fetch_assoc();
-                    if (!$row)
-                    {
-                        echo $row["UTYPE"];
-                        echo "<li class='mblock4'><a href='UploadService.php'>Ladda upp annons</a></li>";
-                        echo $_SESSION[Email];
+                    if ($row['UTYPE'] == 'Annonsskapare')
+                    {   
+                        echo "<li class='mblock3'><a href='UploadService.php'>Ladda upp annons</a></li>";
+                        echo "<li class='mblock3'><a href='Profile.php'>Min Profil</a></li>";
+                        echo "<li class='mblock3'><a href='Logout-process.php'>Logga ut</a></li>";
                     }
+                    else
+                    {
+                        echo "<li class='mblock3'><a class ='active' href='SearchService.php'>Sök annons</a></li>";
+                        echo "<li class='mblock3'><a href='Profile.php'>Min Profil</a></li>";
+                        echo "<li class='mblock3'><a href='Logout-process.php'>Logga ut</a></li>";
+                    }
+
+
             ?>
-            <li class="mblock4"><a class="active" href="SearchService.php">Sök annons</a></li>
-        	<li class="mblock4"><a href="Profile.php">Min Profil</a></li>
-			<li class="mblock4"><a href="Logout-process.php">Logout</a></li>
 		</ul>
 		
 		<title>Uppsala Annonstorg</title>
