@@ -63,13 +63,13 @@ include 'Include/DB.php';
 		<div class="bar">
 			
 		</div>
-        <div class="searchservice">
+        <div class="form">
             <fieldset id="field">
 				<label id="log">Lediga jobb</label> </br>
              <form action="SearchService.php" method="post">
                 </br> Jobbtyp: </br>
                 <select id="service" name="service"> 
-                    <option value="Välj1" id="omr1" selected="selectedd">Välj jobbtyp...</option>
+                    <option value="true" id="omr1" selected="selectedd">Välj jobbtyp...</option>
                     <option value="Barnvakt" id="Barnvakt" name="Barnvakt" >Barnvakt</option>
                     <option value="Hundvakt" id="Hundvakt" name="Hundvakt">Hundvakt</option>
                     <option value="Trädgårdstjänster" id="träd" name="träd">Trädgårdstjänster</option>
@@ -82,7 +82,7 @@ include 'Include/DB.php';
 
                </br> Område: </br>
                <select id="region" name="region">
-                <option value="Välj" id="omr" selected="selected" >Välj område...</option>
+                <option value="true1" id="omr" selected="selected" >Välj område...</option>
                 <option value="Bolanderna" id="bländer" name="bländer">Boländerna</option>
                 <option value="Luthagen" id="Lutis" name="Lutis">Luthagen</option>
                 <option value="Ekeby" id="Ekeby" name="Ekeby">Ekeby</option>
@@ -91,12 +91,12 @@ include 'Include/DB.php';
                 <option value="Centrum" id="C" name="C">Centrum</option>
                 <option value="To be continued" id="tb" name="tb">Övrigt</option>
                 <option value="To be continued" id="tb" name="tb">To be continued</option>
-             </select>
+             </select> </br>
               </br> Ange det datum ni vill arbeta: </br>
              <input type="date" name="date" id="date">
             </br> </br> <input type="submit" id="search" value="Sök">
             </form>
-            </fieldset>
+            </fieldset></br>
         </div>
 
         <?php
@@ -119,17 +119,26 @@ include 'Include/DB.php';
 
         
                 <?php	
-                while ($row = $result -> fetch_assoc ())
-                            {
-                                echo  "<div class='resultTable'>";
-                                echo  "<div class='text>";
-                                echo "<span id='Adress'>Adress: <a href='Annonser.php?id=".$row['JID']."'>".$row["ADRESS"]."</a></span><br>";
-                                echo "<span id='Adress'>Email: ".$row["EMAIL"]."</span><br>";
-                                echo "<span id='Adress'>Jobkategori: ".$row["JOB_CATEGORY"].".</span><br>";
-                                echo "<span id='Adress'>Lön: ".$row["WAGE"]." kr/timme.</span><br>";
-                                echo "<span id='Adress'>Uppskattad arbetstid: ".$row["EST_TIME"]." timmar.</span><br><br>";
-                                echo "<span id='Avskiljare'>***</span><br><br><br><br>";
-                            }
+
+                if($_POST['true'] && $_POST['true1'])
+                {
+                    echo "</br>";
+                }
+                else
+                {
+                    while ($row = $result -> fetch_assoc ())
+                        {
+                            echo  "</br><div class='resultTable'>";
+                            echo  "<div class='text>";
+                            echo "<span id='Adress'>Adress: <a href='Annonser.php?id=".$row['JID']."'>".$row["ADRESS"]."</a></span><br>";
+                            echo "<span id='Adress'>Email: ".$row["EMAIL"]."</span><br>";
+                            echo "<span id='Adress'>Jobkategori: ".$row["JOB_CATEGORY"].".</span><br>";
+                            echo "<span id='Adress'>Lön: ".$row["WAGE"]." kr/timme.</span><br>";
+                            echo "<span id='Adress'>Uppskattad arbetstid: ".$row["EST_TIME"]." timmar.</span><br><br>";
+                            echo "<span id='Avskiljare'>***</span><br><br><br><br>";
+                        }      
+                }
+
                     
                 ?>
             </div>

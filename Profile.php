@@ -50,17 +50,16 @@ $result = $connection -> query ($query)
 		</ul>
 		
 		<title>Profilepage</title>
-		
+		<h1 id="Big">Uppsala Annonstorg</h1>
 	</head>
 	<body>
 
 			
-		<div class="profilediv">
+		<fieldset id="field">
 			<label id="log">Min Profil</label>
-			<?php
+				
+			<?php		
 
-			
-			
 			$current_email = $_SESSION['email'];
 			$query = "SELECT * FROM Prgr16_User WHERE Email='$current_email'";
 
@@ -76,6 +75,7 @@ $result = $connection -> query ($query)
 			}
 
 			?>
+			</fieldset>
 		</div>
 	 
 	
