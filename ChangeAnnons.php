@@ -66,8 +66,7 @@
             </div>
         </div>
 	 <form name = "myForm" method = "GET" action = "SendProfile.php" >
-	 <fieldset id="field">   
-
+	 <fieldset id="field">  
     <label id="log">Min Profil</label> </br>
 	<label> Mer om mig: <br> </label> <textarea id="texta" rows="10" cols="40" name = "merommig"><?php echo $description; ?></textarea> <br>
 	

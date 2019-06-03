@@ -2,9 +2,10 @@
 
 function test_email($data)
 	{
-		if (!stristr($data,"@") OR !stristr($data,".") OR strlen($data)==0) 
+		if (!stristr($data,'@') OR !stristr($data,'.') OR strlen($data)==0 OR stristr($data,'å') OR stristr($data,'Å') OR stristr($data,'ä') OR stristr($data,'Ä') OR stristr($data,'ö') OR stristr($data,'Ö')) //
 		{ 
 			header("Location:Register.php"); //Redirects to Register.php
+			exit();
 		}
 		else 
 		{

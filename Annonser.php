@@ -22,17 +22,17 @@
 		<!--Links to the external php & css-sheets that are being used.-->
 		<ul class="mstructure">
 			<?php
-         $email = $_SESSION["email"];
-                $query = "SELECT UTYPE FROM Prgr16_User WHERE Email='$email'"; //Select all users in db that has same email as variable "@email".
-	            $result = $connection -> query ($query);
-	            $row = $result->fetch_assoc();
+         		$email = $_SESSION["email"];
+                $customerquery = "SELECT UTYPE FROM Prgr16_User WHERE Email='$email'"; //Select all users in db that has same email as variable "@email".
+	            $customerresult = $connection -> query ($customerquery);
+	            $customerrow = $customerresult->fetch_assoc();
 
-                if($row['UTYPE'] == 'Annonsskapare')
+                if($customerrow['UTYPE'] == 'Annonsskapare')
                 {
                     header("Location: UploadService.php");
                 }
 
-                    if ($row['UTYPE'] == 'Annonsskapare')
+                    if ($customerrow['UTYPE'] == 'Annonsskapare')
                     {   
                         echo "<li class='mblock3'><a href='UploadService.php'>Ladda upp annons</a></li>";
                         echo "<li class='mblock3'><a href='Profile.php'>Min Profil</a></li>";
@@ -44,8 +44,7 @@
                         echo "<li class='mblock3'><a href='Profile.php'>Min Profil</a></li>";
                         echo "<li class='mblock3'><a href='Logout-process.php'>Logga ut</a></li>";
                     }
-					?>
-
+				?>	
 		</ul>
 		<title>Uppsala Annonstorg</title>
 			<h1 id="Big">Här är den annons som du intresserade dig för</h1>
