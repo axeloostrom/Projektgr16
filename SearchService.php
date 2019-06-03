@@ -102,7 +102,7 @@ include 'Include/DB.php';
             
             </form>
           </fieldset>
-        </div>
+        </div> </br>
 
         <?php
         

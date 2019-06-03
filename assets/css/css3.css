@@ -162,13 +162,16 @@ padding: 0.5%;
 
 .resultTable
 {
-background-color:grey;
+background-color: #f3f3f3;
 border: 2px solid white;
-margin-left:15%;
-margin-right:15%;
-padding:6%;
-margin-bottom:3%;
+margin-left:35%;
+margin-right:35%;
+padding:2%;
+margin-bottom:1%;
 border-radius:8% 8%;
+width: 26%;
+text-align: center;
+
 }
 
 .Bnum {
