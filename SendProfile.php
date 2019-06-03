@@ -13,7 +13,7 @@ if ($connection -> connect_error)
 	die ("Connection failed:".$connection.connect_error) ;
 }
 //Displays "Connection failed" on site if Connection error. Otherwise it displays nothing.
-$_SESSION["merommig"];
+
 $_SESSION["email"];
 
 
@@ -34,6 +34,6 @@ $connection -> query($query);
 
 
 
-header ("Refresh: 2, URL = ChangeProfile.php");
+header ("Location: Profile.php");
 ?>
 

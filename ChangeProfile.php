@@ -18,13 +18,31 @@
 		<link rel = "stylesheet" type = "text/css"  href = "assets\css\css3.css" />
 		<link rel='stylesheet' type='text/css' href="assets\css\style.php" />
 		<!--Links to the external php & css-sheets that are being used.-->
-		
 		<title>ChangeProfilepage</title>
 		<ul class="mstructure">
-            <li class="mblock3"><a href="SearchService.php">Sök annons</a></li>
-        	<li class="mblock3"><a class="active" href="Profile.php">Min Profil</a></li>
-			<li class="mblock3"><a href="Logout-process.php">Logout</a></li>
+                      <?php
+
+                $email = $_SESSION["email"];
+                $query = "SELECT UTYPE FROM Prgr16_User WHERE Email='$email'"; //Select all users in db that has same email as variable "@email".
+	            $result = $connection -> query ($query);
+	            $row = $result->fetch_assoc();
+                    if ($row['UTYPE'] == 'Annonsskapare')
+                    {   
+                        echo "<li class='mblock3'><a href='UploadService.php'>Ladda upp annons</a></li>";
+                        echo "<li class='mblock3'><a class ='active' href='Profile.php'>Min Profil</a></li>";
+                        echo "<li class='mblock3'><a href='Logout-process.php'>Logga ut</a></li>";
+                    }
+                    else
+                    {
+                        echo "<li class='mblock3'><a href='SearchService.php'>Sök annons</a></li>";
+                        echo "<li class='mblock3'><a class ='active' href='Profile.php'>Min Profil</a></li>";
+                        echo "<li class='mblock3'><a href='Logout-process.php'>Logga ut</a></li>";
+                    }
+
+            ?>
+		
 		</ul>
+			<h1 id="Big">Uppsala Annonstorg</h1>
 	</head>
 	<body>
 	 
@@ -35,7 +53,7 @@
 	<label> Mer om mig: <br> </label> <textarea id="texta" rows="10" cols="40" name = "merommig"><?php echo $description; ?></textarea> <br>
 	
 	
-	 <br> <input type = "submit" value = "Ändra" id = "ändraKnapp" class = "button">
+	  <input  class="subbutton" type = "submit" value = "Ändra" id = "ändraKnapp" class = "button">
 				<br>
 		
 			

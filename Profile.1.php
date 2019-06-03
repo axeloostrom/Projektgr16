@@ -35,13 +35,13 @@ $result = $connection -> query ($query)
                     if ($row['UTYPE'] == 'Annonsskapare')
                     {   
                         echo "<li class='mblock3'><a href='UploadService.php'>Ladda upp annons</a></li>";
-                        echo "<li class='mblock3'><a class ='active' href= 'Profile.php'>Min Profil</a></li>";
+                        echo "<li class='mblock3'><a href='Profile.php'>Min Profil</a></li>";
                         echo "<li class='mblock3'><a href='Logout-process.php'>Logga ut</a></li>";
                     }
                     else
                     {
-                        echo "<li class='mblock3'><a href='SearchService.php'>Sök annons</a></li>";
-                        echo "<li class='mblock3'><a class ='active' href='Profile.php'>Min Profil</a></li>";
+                        echo "<li class='mblock3'><a class ='active' href='SearchService.php'>Sök annons</a></li>";
+                        echo "<li class='mblock3'><a href='Profile.php'>Min Profil</a></li>";
                         echo "<li class='mblock3'><a href='Logout-process.php'>Logga ut</a></li>";
                     }
 

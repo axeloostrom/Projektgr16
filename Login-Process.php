@@ -30,7 +30,15 @@
 			<h2 id="topic">Försöker logga in...</h2>
 		</div>
 		<?php	
-			header("Refresh: 3; URL=SearchService.php");
+	$email = $_SESSION["email"];
+    $query = "SELECT UTYPE FROM Prgr16_User WHERE Email='$email'"; //Select all users in db that has same email as variable "@email".
+	$result = $connection -> query ($query);
+	$row = $result->fetch_assoc();
+        if ($row['UTYPE'] == 'Annonsskapare')
+            {   
+            	header("Refresh: 3; URL=UploadService.php");
+            }
+		else header("Refresh: 3; URL=SearchService.php");
 		?>
 	</body>
 </html>

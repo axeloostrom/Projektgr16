@@ -65,7 +65,7 @@ include 'Include/DB.php';
 		</div>
         <div class="form">
             <fieldset id="field">
-				<label id="log">Lediga jobb</label> </br>
+				<label id="log">Lediga jobb</label> 
              <form action="SearchService.php" method="post">
                 </br> Jobbtyp: </br>
                 <select id="service" name="service"> 
@@ -78,7 +78,7 @@ include 'Include/DB.php';
                     <option value="Flytthjälp" id="Flytt" name="Flytt">Flytt- och bärhjälp</option>
                     <option value="Nation" id="Nation" name="Nation">Nation</option>
                     <option value="To be continued" id="tbc" name="tbc">To be continued</option>
-                </select> </br>
+                </select> 
 
                </br> Område: </br>
                <select id="region" name="region">
@@ -91,12 +91,13 @@ include 'Include/DB.php';
                 <option value="Centrum" id="C" name="C">Centrum</option>
                 <option value="To be continued" id="tb" name="tb">Övrigt</option>
                 <option value="To be continued" id="tb" name="tb">To be continued</option>
-             </select> </br>
-              </br> Ange det datum ni vill arbeta: </br>
+             </select> 
+              </br> Ange det datum ni vill arbeta: 
              <input type="date" name="date" id="date">
-            </br> </br> <input type="submit" id="search" value="Sök">
+          <input  class="subbutton" type="submit" id="search" value="Sök">
+            
             </form>
-            </fieldset></br>
+          </fieldset>
         </div>
 
         <?php

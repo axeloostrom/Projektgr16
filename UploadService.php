@@ -9,6 +9,7 @@ $connection = dbconnect();
 		<link rel = "stylesheet" type = "text/css"  href = "assets\css\css3.css" />
 		<link rel='stylesheet' type='text/css' href="assets\css\style.php" />
 		<!--Links to the external php & css-sheets that are being used.-->
+        
 		<ul class="mstructure">
    <?php
 
@@ -18,7 +19,7 @@ $connection = dbconnect();
 	            $row = $result->fetch_assoc();
                     if ($row['UTYPE'] == 'Annonsskapare')
                     {   
-                        echo "<li class='mblock3'><a href='UploadService.php'>Ladda upp annons</a></li>";
+                        echo "<li class='mblock3'><a class ='active' href='UploadService.php'>Ladda upp annons</a></li>";
                         echo "<li class='mblock3'><a href='Profile.php'>Min Profil</a></li>";
                         echo "<li class='mblock3'><a href='Logout-process.php'>Logga ut</a></li>";
                     }
@@ -30,15 +31,16 @@ $connection = dbconnect();
                     }
             ?>
 		</ul>
-		
+		<h1 id="Big">Uppsala annonstorg</h1>
 		<title>Uppsala Annonstorg</title>
-			<h1 id="Big">Uppsala annonstorg</h1>
+			
 	</head>
         <body>
-            <h1> Ladda upp tjänst </h1>
-              <div class="uploadservice">
+              <div class="form">
                 <form action="UploadService-Process.php" method="post">
-                    <h4>Tjänst</h4>
+                    <fieldset id="field">
+                        <label id="log">Ladda upp tjänst</label> </br>
+                    <div class="formId">Tjänst:</div>
                     <select id="service" name="service"> 
                         <option value="Välj tjänst" id="abc" name="abc">Välj tjänst...</option>
                         <option value="Barnvakt" id="Barnvakt" name="Barnvakt">Barnvakt</option>
@@ -50,7 +52,7 @@ $connection = dbconnect();
                         <option value="Nation" id="Nation" name="Nation">Nation</option>
                     </select> </br>
 
-                    <h4> Område: </h4>
+                    <div class="formId">Område:</div>
                     <select id="region" name="region">
                         <option value="Område" id="ab" name="ab">Välj område...</option>
                         <option value="Bolanderna" id="bländer" name="bländer">Boländerna</option>
@@ -60,15 +62,16 @@ $connection = dbconnect();
                         <option value="Studentstaden" id="Stud" name="Stud">Studentstaden</option>
                         <option value="Centrum" id="C" name="C">Centrum</option>
                     </select> </br>
-                    <h4> Ange antal arbetstimmar: </h4>
-                        <input type="text" name="hours" id="hours">
-                    <h4> Ange timlön: </h4>
-                        <input type="text" name="wage" id="wage"> </h4>
-                    <h4> Ange datum ni senast vill ha jobbet utfört: </h4>
+                    <div class="formId">Ange antal arbetstimmar:</div>
+                        <input type="text" name="hours" id="hours" placeholder="Antal timmar...">
+                    <div class="formId">Ange timlön:</div> 
+                        <input type="text" name="wage" id="wage" placeholder="Ange lön..."> 
+                     <div class="formId">Ange datum:</div> 
                         <input type="date" name="date" id="date">
-                    <h4> Beskriv tjänsten kortfattat: </h4>
-                        <textarea input type="text" id="message" name="message" rows="10" cols="50"></textarea>
-                    </br> </br> <input type="submit" id="search" value="Ladda upp">
+                     <div class="formId">Beskriv tjänsten kortfattat: </div> 
+                        <textarea input type="text" id="texta" name="message" rows="10" cols="50"></textarea>
+                    </br> </br> <input class="subbutton"type="submit" id="search" value="Ladda upp">
+               </fieldset>
                 </form>
             </div>
 

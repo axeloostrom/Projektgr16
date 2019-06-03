@@ -4,18 +4,17 @@
 		<link rel = "stylesheet" type = "text/css"  href = "assets\css\css3.css" />
 		<link rel='stylesheet' type='text/css' href="assets\css\style.php" />
 		<title>Uppsala Annonstorg</title>
+
 			<ul class="mstructure">
-				<li class="mblock"><a class="active" href="Login.php">Log-In</a></li>
+				<li class="mblock"><a class ='active' href="Login.php">Log-In</a></li>
 				<li class="mblock"><a href="Register.php">Register</a></li>
 			</ul>
-			<h1 id="Big">Uppsala Annonstorg</h1>
+					<h1 id="Big">Uppsala Annonstorg</h1>
+
 	
 	</head>
 	<body onload='document.loginForm.login_usremail.focus()'>
-		<div class="bar">
-			<h2 id="topic">Välkommen tillbaka<br>till oss!</h2>
-			
-		</div>
+
 		<div class="form">
 	
 		<form action="Login-Process.php" name="loginForm">
