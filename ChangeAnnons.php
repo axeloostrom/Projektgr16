@@ -53,7 +53,6 @@
            <h1 id="Big">Uppsala Annonstorg</h1>
 	</head>
 	<body>
-<<<<<<< HEAD
 	 <div class="resultTable">
             <div class="text">
                 <?php
@@ -73,12 +72,10 @@
         </div>
 	 <form name = "myForm" method = "GET" action = "SendProfile.php" >
 	 <fieldset id="field">  
-=======
 
     	 <form name = "myForm" method = "GET" action = "SendProfile.php" >
 	 <fieldset id="field">   
 
->>>>>>> 43c315e31527daa62d30d4639d90fd60a6368b74
     <label id="log">Min Profil</label> </br>
 	<label> Mer om mig: <br> </label> <textarea id="texta" rows="10" cols="40" name = "merommig"><?php echo $description; ?></textarea> <br>
 	
