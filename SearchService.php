@@ -61,13 +61,16 @@ include 'Include/DB.php';
 
 	<!--Allows the user to instantly write their name that they use when posting a comment-->
 		<div class="bar">
-			<h2 id="topic">Lediga Jobb</h2>
+			
 		</div>
         <div class="searchservice">
-             <form name="frm1" id="frm1" action="SearchService.php" method="post">
+            <fieldset id="field">
+				<label id="log">Lediga jobb</label> </br>
+             <form action="SearchService.php" method="post">
                 </br> Jobbtyp: </br>
                 <select id="service" name="service"> 
-                    <option value="Barnvakt" id="Barnvakt" name="Barnvakt" selected="selected">Barnvakt</option>
+                    <option value="Välj1" id="omr1" selected="selectedd">Välj jobbtyp...</option>
+                    <option value="Barnvakt" id="Barnvakt" name="Barnvakt" >Barnvakt</option>
                     <option value="Hundvakt" id="Hundvakt" name="Hundvakt">Hundvakt</option>
                     <option value="Trädgårdstjänster" id="träd" name="träd">Trädgårdstjänster</option>
                     <option value="Handling" id="handla" name="handla">Handling</option>
@@ -79,7 +82,8 @@ include 'Include/DB.php';
 
                </br> Område: </br>
                <select id="region" name="region">
-                <option value="Bolanderna" id="bländer" name="bländer" selected="selected">Boländerna</option>
+                <option value="Välj" id="omr" selected="selected" >Välj område...</option>
+                <option value="Bolanderna" id="bländer" name="bländer">Boländerna</option>
                 <option value="Luthagen" id="Lutis" name="Lutis">Luthagen</option>
                 <option value="Ekeby" id="Ekeby" name="Ekeby">Ekeby</option>
                 <option value="Rackarbergen" id="RackC" name="RackC">Rackarbergen</option>
@@ -92,6 +96,7 @@ include 'Include/DB.php';
              <input type="date" name="date" id="date">
             </br> </br> <input type="submit" id="search" value="Sök">
             </form>
+            </fieldset>
         </div>
 
         <?php
@@ -112,12 +117,12 @@ include 'Include/DB.php';
             }
         ?>
 
-        <div class="resultTable">
-            <div class="text">
+        
                 <?php	
                 while ($row = $result -> fetch_assoc ())
                             {
-                                
+                                echo  "<div class='resultTable'>";
+                                echo  "<div class='text>";
                                 echo "<span id='Adress'>Adress: <a href='Annonser.php?id=".$row['JID']."'>".$row["ADRESS"]."</a></span><br>";
                                 echo "<span id='Adress'>Email: ".$row["EMAIL"]."</span><br>";
                                 echo "<span id='Adress'>Jobkategori: ".$row["JOB_CATEGORY"].".</span><br>";
