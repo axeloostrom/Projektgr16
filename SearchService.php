@@ -67,9 +67,6 @@ include 'Include/DB.php';
 	<body > <!--onload="document.frm1.submit()"-->
 
 	<!--Allows the user to instantly write their name that they use when posting a comment-->
-		<div class="bar">
-			
-		</div>
         <div class="form">
             <fieldset id="field">
 				<label id="log">Lediga jobb</label> 

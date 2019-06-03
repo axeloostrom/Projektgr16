@@ -25,7 +25,7 @@
 			<li class="mblock"><a href="Logout-process.php">Logout</a></li>
 		</ul>
 		<title>Uppsala Annonstorg</title>
-			<h1 id="Big">Här är den annons som du intresserade dig för.</h1>
+			<h1 id="Big">Här är den annons som du intresserade dig för</h1>
 	</head>
 	<body>
 			<div id="annonsbar">

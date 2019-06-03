@@ -23,11 +23,10 @@
 		</style>
 		<title>Uppsala Annonstorg</title>
 			<h1 id="Big">Uppsala Annonstorg</h1>
-			<h1>Du är snart där och kan söka bland alla möjliga annonser!</h1>
 	</head>
 	<body onload='document.regForm.reg_usrname.focus()'>
 		<div class="bar">
-			<h2 id="topic">Försöker logga in...</h2>
+			<h2 id="topic">Du blir nu omdirigerad...</h2>
 		</div>
 		<?php	
 	$email = $_SESSION["email"];
