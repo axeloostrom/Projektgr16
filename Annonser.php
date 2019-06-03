@@ -21,8 +21,31 @@
 		
 		<!--Links to the external php & css-sheets that are being used.-->
 		<ul class="mstructure">
-			<li class="mblock"><a class="active" href="SearchService.php">Sök annons</a></li>
-			<li class="mblock"><a href="Logout-process.php">Logout</a></li>
+			<?php
+         $email = $_SESSION["email"];
+                $query = "SELECT UTYPE FROM Prgr16_User WHERE Email='$email'"; //Select all users in db that has same email as variable "@email".
+	            $result = $connection -> query ($query);
+	            $row = $result->fetch_assoc();
+
+                if($row['UTYPE'] == 'Annonsskapare')
+                {
+                    header("Location: UploadService.php");
+                }
+
+                    if ($row['UTYPE'] == 'Annonsskapare')
+                    {   
+                        echo "<li class='mblock3'><a href='UploadService.php'>Ladda upp annons</a></li>";
+                        echo "<li class='mblock3'><a href='Profile.php'>Min Profil</a></li>";
+                        echo "<li class='mblock3'><a href='Logout-process.php'>Logga ut</a></li>";
+                    }
+                    else
+                    {
+                        echo "<li class='mblock3'><a class ='active' href='SearchService.php'>Sök annons</a></li>";
+                        echo "<li class='mblock3'><a href='Profile.php'>Min Profil</a></li>";
+                        echo "<li class='mblock3'><a href='Logout-process.php'>Logga ut</a></li>";
+                    }
+					?>
+
 		</ul>
 		<title>Uppsala Annonstorg</title>
 			<h1 id="Big">Här är den annons som du intresserade dig för</h1>
