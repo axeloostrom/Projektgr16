@@ -12,7 +12,6 @@
 	</head>
 	<body onload='document.loginForm.login_usremail.focus()'>
 		<div class="bar">
-			<h2 id="topic">Välkommen tillbaka<br>till oss!</h2>
 		</div>
 		<form action="Login-Process.php" name="loginForm">
 			<fieldset id="field">
@@ -26,7 +25,4 @@
 			</fieldset>
 		</form>
 		<script src="assets\js\js.js"></script>
-		<ul class="mstructure">
-			<li class="mblock"><a href="Register.php">Registera</a></li>
-		</ul>
 </html>
