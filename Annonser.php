@@ -42,9 +42,7 @@
 						echo "<span id='annonsrow'><strong>Uppskattad tidsåtgång: </strong>".$row['EST_TIME']." minuter.</span><br><br>";
 						echo "<span id='annonsrow'><strong>Utförelsedatum: </strong>".$row['LFD'].".</span><br><br>";
 						echo "<span id='annonsrow'><strong>Beskrivning: </strong>''".$row['DESCRIPTION']."''</span><br><br>";
-<<<<<<< HEAD
-						
-=======
+
 						$adress = $row['ADRESS'];
 						$coordinatesQuery = "SELECT * FROM Prgr16_Coordinates WHERE ADRESS='$adress'"; 
     					$coordinatesResult= $connection -> query ($coordinatesQuery);
@@ -53,8 +51,6 @@
 						$longitude = $coordinatesRow["LONGI"];
 						echo $longitude;
 
-
->>>>>>> 3fb0619b803e9c8824914b111d00af9a0a9cfe14
 					}
 				?>
 			</div>
