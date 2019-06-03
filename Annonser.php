@@ -65,6 +65,7 @@
 			</script>
 			</fieldset>
 	<!--Start of Posting Form-->
+<<<<<<< HEAD
 		<div id="contactForm">
 			<form action="Posts-Create.php" name="usrForm">
 				<fieldset id="fieldcontact">
@@ -79,5 +80,17 @@
 			</form>
 		</div>
 		</section>
+=======
+		<form action="Posts-Create.php" name="usrForm">
+			<fieldset id="field">
+				<div class="formId">Name:</div>
+					<input class="input" type="text" name="usrname" required><br> <!--First inputfield allowing user to enter the name which is linked to the comment-->
+			
+				<div class="formId">Comment:</div>
+					<input id="commentbox" type "text" name="comment" required><br> <!--Third inputfield allowing user to write the actual comment-->
+				<input class="subbutton"type="submit" onclick="validateIndexEmail(document.usrForm.usremail)"> <!--Submitbutton sending the email to a javascript function which validates it-->
+			</fieldset>
+		</form>
+>>>>>>> 1a4d1bde642e6bfaf3164837b6c96289f6d150de
 	</body>
 </html>

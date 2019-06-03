@@ -17,6 +17,7 @@
 	$result = $connection -> query ($query);
 	$row = $result->fetch_assoc();
 	$_SESSION["email"] = $email;
+
 	
 	insertToDB($connection,$row,$email,$realpassword,$merommig,$kundtyp); //Insert to db if no rows are returned.
 	

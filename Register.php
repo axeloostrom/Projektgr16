@@ -27,7 +27,7 @@
 				<select id="kundtyp" name="kundtyp">
 					<option value="VKT" id="vkt" name="vkt">Välj kundtyp...</option>
 					<option value="Annonsskapare" id="annonsör" name="annonsör">Annonsskapare</option>
-					<option value="Jobbsökande" id="jobbsökande" name="jobbsökande">Jobbsökande</option>
+					<option value="Jobbsearch" id="jobbsökande" name="jobbsökande">Jobbsökande</option>
            		</select> </br>
 				   <div class="formId">Lösenord:</div>
 					<input type="password" type="text" name="reg_password" placeholder="Lösenord..."required><br>
