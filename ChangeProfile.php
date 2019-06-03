@@ -37,13 +37,9 @@
 	
 	 <br> <input type = "submit" value = "Ändra" id = "ändraKnapp" class = "button">
 				<br>
-		<div class = "deleteprofile">
-		<form id = "form" name = "form1" method = "GET" action = "deleteprofile.php" onsubmit = "submit">
-		<input type = "submit" value = "Ta bort profil">
-         </div>
 		
-		</form>
+			
 		</fieldset>
-
+		</form>
 </body>
 </html>	

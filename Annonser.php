@@ -5,6 +5,8 @@
 	$siteid = $_GET['id'];
 	$query = "SELECT * FROM Prgr16_Jobs WHERE JID=$siteid"; 
     $result= $connection -> query ($query);
+
+	
 ?> 
 <!--Selects all data from table "Comments in database.-->
 
@@ -40,7 +42,19 @@
 						echo "<span id='annonsrow'><strong>Uppskattad tidsåtgång: </strong>".$row['EST_TIME']." minuter.</span><br><br>";
 						echo "<span id='annonsrow'><strong>Utförelsedatum: </strong>".$row['LFD'].".</span><br><br>";
 						echo "<span id='annonsrow'><strong>Beskrivning: </strong>''".$row['DESCRIPTION']."''</span><br><br>";
+<<<<<<< HEAD
 						
+=======
+						$adress = $row['ADRESS'];
+						$coordinatesQuery = "SELECT * FROM Prgr16_Coordinates WHERE ADRESS='$adress'"; 
+    					$coordinatesResult= $connection -> query ($coordinatesQuery);
+						$coordinatesRow = $coordinatesResult -> fetch_assoc ();
+						$latitude = $coordinatesRow["LATI"];
+						$longitude = $coordinatesRow["LONGI"];
+						echo $longitude;
+
+
+>>>>>>> 3fb0619b803e9c8824914b111d00af9a0a9cfe14
 					}
 				?>
 			</div>
@@ -48,12 +62,12 @@
 		<section>
 			<fieldset id="map">
 			<script>
-				var map = L.map('map').setView([59.8585, 17.646], 13); 
+				var map = L.map('map').setView([<?php echo $latitude; ?>,<?php echo $longitude; ?>], 13); 
 
 				L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=TCvVIKqMJrAzTVI68KWq', {
 					attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a>',
 				}).addTo(map);
-				var marker = L.marker([59.8585, 17.646]).addTo(map);
+				var marker = L.marker([<?php echo $latitude; ?>,<?php echo $longitude; ?>]).addTo(map);
 			</script>
 			<section>
 			</fieldset>
