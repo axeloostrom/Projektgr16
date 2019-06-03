@@ -25,13 +25,9 @@
 			<li class="mblock"><a href="Logout-process.php">Logout</a></li>
 		</ul>
 		<title>Uppsala Annonstorg</title>
-			<h1 id="Big">För ett mer integrerat Uppsala</h1>
+			<h1 id="Big">Här är den annons som du intresserade dig för.</h1>
 	</head>
 	<body>
-		<div class="bar">
-			<h2 id="topic"> Här är den annons som du intresserade dig för.</h2>
-		</div>
-		<section class="masterannonsdiv">
 			<div id="annonsbar">
 				<?php
 					while ($row = $result -> fetch_assoc ())
@@ -42,6 +38,8 @@
 						echo "<span id='annonsrow'><strong>Uppskattad tidsåtgång: </strong>".$row['EST_TIME']." minuter.</span><br><br>";
 						echo "<span id='annonsrow'><strong>Utförelsedatum: </strong>".$row['LFD'].".</span><br><br>";
 						echo "<span id='annonsrow'><strong>Beskrivning: </strong>''".$row['DESCRIPTION']."''</span><br><br>";
+						
+						$annonsskaparensMail = $row['EMAIL'];
 
 						$adress = $row['ADRESS'];
 						$coordinatesQuery = "SELECT * FROM Prgr16_Coordinates WHERE ADRESS='$adress'"; 
@@ -53,7 +51,7 @@
 					}
 				?>
 			</div>
-		
+
 			<fieldset id="map">
 			<script>
 				var map = L.map('map').setView([<?php echo $latitude; ?>,<?php echo $longitude; ?>], 13); 
@@ -61,36 +59,20 @@
 				L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=TCvVIKqMJrAzTVI68KWq', {
 					attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a>',
 				}).addTo(map);
-				var marker = L.marker([<?php echo $latitude; ?>,<?php echo $longitude; ?>]).addTo(map);
+				var marker = L.marker([<?php echo $latitude; ?>,<?php echo $longitude; ?>]).addTo(map); 
 			</script>
 			</fieldset>
 	<!--Start of Posting Form-->
-<<<<<<< HEAD
 		<div id="contactForm">
-			<form action="Posts-Create.php" name="usrForm">
+			<form action="mailto:<?php echo $annonsskaparensMail;?>" method="post" enctype="text/plain">
 				<fieldset id="fieldcontact">
 					<div >Name:</div>
-						<input class="input" type="text" name="usrname" required><br> <!--First inputfield allowing user to enter the name which is linked to the comment-->
-					<div>Email:</div>
-						<input class="input" type="text" name="usremail" required><br><br> <!--Second inputfield allowing user to enter the email which is linked to the comment but not displayed-->
+						<input class="input" type="text" name="contactname" required><br> <!--First inputfield allowing user to enter the name which is linked to the comment-->
 					<div>Comment:</div>
-						<input id="commentbox" type "text" name="comment" required><br> <!--Third inputfield allowing user to write the actual comment-->
-					<input class="subbutton"type="submit" onclick="validateIndexEmail(document.usrForm.usremail)"> <!--Submitbutton sending the email to a javascript function which validates it-->
+						<input id="commentbox" type "text" name="message" required><br> <!--Third inputfield allowing user to write the actual comment-->
+					<input class="subbutton"type="submit" value="Skicka meddelande till Annonsör" onclick=" validateIndexComment(document.contactForm.message)"> <!--Submitbutton sending the email to a javascript function which validates it-->
 				</fieldset>
 			</form>
 		</div>
-		</section>
-=======
-		<form action="Posts-Create.php" name="usrForm">
-			<fieldset id="field">
-				<div class="formId">Name:</div>
-					<input class="input" type="text" name="usrname" required><br> <!--First inputfield allowing user to enter the name which is linked to the comment-->
-			
-				<div class="formId">Comment:</div>
-					<input id="commentbox" type "text" name="comment" required><br> <!--Third inputfield allowing user to write the actual comment-->
-				<input class="subbutton"type="submit" onclick="validateIndexEmail(document.usrForm.usremail)"> <!--Submitbutton sending the email to a javascript function which validates it-->
-			</fieldset>
-		</form>
->>>>>>> 1a4d1bde642e6bfaf3164837b6c96289f6d150de
 	</body>
 </html>
