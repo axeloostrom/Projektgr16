@@ -40,11 +40,13 @@
 						echo "<span id='annonsrow'><strong>Uppskattad tidsåtgång: </strong>".$row['EST_TIME']." minuter.</span><br><br>";
 						echo "<span id='annonsrow'><strong>Utförelsedatum: </strong>".$row['LFD'].".</span><br><br>";
 						echo "<span id='annonsrow'><strong>Beskrivning: </strong>''".$row['DESCRIPTION']."''</span><br><br>";
+						
 					}
 				?>
 			</div>
 		</section>
-			<div id="map">
+		<section>
+			<fieldset id="map">
 			<script>
 				var map = L.map('map').setView([59.8585, 17.646], 13); 
 
@@ -53,7 +55,8 @@
 				}).addTo(map);
 				var marker = L.marker([59.8585, 17.646]).addTo(map);
 			</script>
-			</div>
+			<section>
+			</fieldset>
 		
 
 	<!--Start of Posting Form-->
