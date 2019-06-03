@@ -136,7 +136,7 @@ include 'Include/DB.php';
                             echo  "</br><div class='resultTable'>";
                             echo  "<div class='text>";
                             echo "<span id='Adress'>Adress: <a href='Annonser.php?id=".$row['JID']."'>".$row["ADRESS"]."</a></span><br>";
-                            echo "<span id='Adress'>Email: ".$row["EMAIL"]."</span><br>";
+                            echo "<span id='Adress'>Datum: ".$row["LFD"]."</span><br>";
                             echo "<span id='Adress'>Jobkategori: ".$row["JOB_CATEGORY"].".</span><br>";
                             echo "<span id='Adress'>Lön: ".$row["WAGE"]." kr/timme.</span><br>";
                             echo "<span id='Adress'>Uppskattad arbetstid: ".$row["EST_TIME"]." timmar.</span><br><br>";

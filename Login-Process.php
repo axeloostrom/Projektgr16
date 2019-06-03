@@ -26,7 +26,7 @@
 	</head>
 	<body onload='document.regForm.reg_usrname.focus()'>
 		<div class="bar">
-			<h2 id="topic">Du blir nu omdirigerad...</h2>
+			<h2>Du blir nu omdirigerad...</h2>
 		</div>
 		<?php	
 	$email = $_SESSION["email"];

@@ -9,7 +9,7 @@
 	</head>
 	<body onload='document.regForm.reg_usrname.focus()'>
 		<div class="bar">
-			<h2 id="topic">Lösenordet är för kort...<br><br><br><br>Du blir nu omdirigerad.</h3>
+			<h2 id="topic">Input är för kort...<br><br><br><br>Du blir nu omdirigerad.</h3>
 		</div>
 		<?php
 			header("Refresh:3;URL=Register.php");
