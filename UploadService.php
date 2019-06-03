@@ -37,7 +37,7 @@ $connection = dbconnect();
                     }
             ?>
 		</ul>
-		<h1 id="Big">Uppsala annonstorg</h1>
+		<h1 id="Big">Uppsala Annonstorg</h1>
 		<title>Uppsala Annonstorg</title>
 			
 	</head>

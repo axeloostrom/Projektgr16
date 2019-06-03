@@ -17,9 +17,34 @@
 		
 		<title>ChangeProfilepage</title>
 		<ul class="mstructure">
-            <li class="mblock3"><a href="SearchService.php">Sök annons</a></li>
-        	<li class="mblock3"><a class="active" href="Profile.php">Min Profil</a></li>
-			<li class="mblock3"><a href="Logout-process.php">Logout</a></li>
+     <?php
+
+         $email = $_SESSION["email"];
+                $query = "SELECT UTYPE FROM Prgr16_User WHERE Email='$email'"; //Select all users in db that has same email as variable "@email".
+	            $result = $connection -> query ($query);
+	            $row = $result->fetch_assoc();
+
+                if($row['UTYPE'] != 'Annonsskapare')
+                {
+                    header("Location: SearchService.php");
+                }
+
+                    if ($row['UTYPE'] == 'Annonsskapare')
+                    {   
+                        echo "<li class='mblock3'><a href='UploadService.php'>Ladda upp annons</a></li>";
+                        echo "<li class='mblock3'><a href='Profile.php'>Min Profil</a></li>";
+                        echo "<li class='mblock3'><a href='Logout-process.php'>Logga ut</a></li>";
+                    }
+                    else
+                    {
+                        echo "<li class='mblock3'><a class ='active' href='SearchService.php'>Sök annons</a></li>";
+                        echo "<li class='mblock3'><a href='Profile.php'>Min Profil</a></li>";
+                        echo "<li class='mblock3'><a href='Logout-process.php'>Logga ut</a></li>";
+                    }
+
+
+	 ?>
+
 		</ul>
 	</head>
 	<body>

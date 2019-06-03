@@ -4,7 +4,8 @@ function matchInputWithDB($connection,$row,$login_email,$login_password)
 	if ( ! $row) //If no row exist then the input is incorrect.
 	{
 		echo $row;
-		header("Location:Unauthorized.php"); //Redirects to Unauthorized.php
+		echo '<script> alert("Användaren hittades inte, vänligen registrera dig.");</script>';
+		header("Refresh: 0.1; URL=Login.php"); //Redirects to Unauthorized.php
 		exit();
 	}
 	else //Creates three new variables from data from the database.
@@ -30,11 +31,13 @@ function matchInputWithDB($connection,$row,$login_email,$login_password)
 		$_SESSION["db_password"] = $db_password;
 		//End of creating session variables of user-input
 		
-		if ($_SESSION["hashed_password"] != $_SESSION["db_password"]) //If the hashed password created from the user input differs to the db-password then the user is not authorize to see the comments.
+		if ($_SESSION["hashed_password"] != $_SESSION["db_password"]) 
 		{
+			echo '<script> alert("Fel lösenord, försök igen.");</script>';
 			session_unset(); //Unsets all values on the variables.
 			session_destroy(); //Destroys the session.
-			header("Location:Unauthorized.php"); //Redirects to unathorized.
+			header("Refresh: 0.1; URL=Login.php"); 
+		
 		}
 	}
 }
