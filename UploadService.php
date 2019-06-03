@@ -33,7 +33,6 @@ $connection = dbconnect();
                         <option value="Städning" id="Städning" name="Städning">Städning</option>
                         <option value="Flytthjälp" id="Flytt" name="Flytt">Flytt- och bärhjälp</option>
                         <option value="Nation" id="Nation" name="Nation">Nation</option>
-                        <option value="To be continued" id="tbc" name="tbc">Övrigt</option>
                     </select> </br>
 
                     <h4> Område: </h4>
@@ -45,7 +44,6 @@ $connection = dbconnect();
                         <option value="Rackarbergen" id="RackC" name="RackC">Rackarbergen</option>
                         <option value="Studentstaden" id="Stud" name="Stud">Studentstaden</option>
                         <option value="Centrum" id="C" name="C">Centrum</option>
-                        <option value="To Be Continued" id="tb" name="tb">To be continued</option>
                     </select> </br>
                     <h4> Ange antal arbetstimmar: </h4>
                         <input type="text" name="hours" id="hours">
